@@ -1,9 +1,11 @@
 import { Component, OnInit, OnDestroy } from "@angular/core";
 import noUiSlider from "nouislider";
+import $ from 'jquery';
 
 @Component({
   selector: "app-index",
-  templateUrl: "index.component.html"
+  templateUrl: "index.component.html",
+  styleUrls: ["index.component.scss"],
 })
 export class IndexComponent implements OnInit, OnDestroy {
   isCollapsed = true;
@@ -18,6 +20,7 @@ export class IndexComponent implements OnInit, OnDestroy {
     element.scrollIntoView({ behavior: "smooth" });
   }
   ngOnInit() {
+    this.scroll();
     var body = document.getElementsByTagName("body")[0];
     body.classList.add("index-page");
 
@@ -46,5 +49,23 @@ export class IndexComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     var body = document.getElementsByTagName("body")[0];
     body.classList.remove("index-page");
+  }
+
+  scroll() {
+    $(document).on("scroll", function(){
+      let sectionScroll = document.getElementById("scrollElem");
+      let elemHeight = $(sectionScroll).height();
+      let scrollTop = $(window).scrollTop();
+      let winHeight = $(window).height();
+      let scrollPercent = (scrollTop) / (elemHeight - winHeight);
+      let scrollPercentRounded = Math.round(scrollPercent*100);
+      let textElem = document.getElementById("textElem");
+      let real =  0;
+      if(-600 > scrollPercentRounded && scrollPercentRounded > -1800) {
+        real = (scrollPercentRounded + 600) / 10;
+      }
+      console.log(real)
+      $(textElem).css('--gradient-x',-real+'%');
+    })
   }
 }
