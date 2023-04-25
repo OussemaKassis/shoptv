@@ -64,7 +64,6 @@ export class IndexComponent implements OnInit, OnDestroy {
       if(-210 > scrollPercentRounded && scrollPercentRounded > -427) {
         real = (scrollPercentRounded + 210) / 2;
       }
-      console.log(real)
       $(textElem).css('--gradient-x',-real+'%');
     })
   }
