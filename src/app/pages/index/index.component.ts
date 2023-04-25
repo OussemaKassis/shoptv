@@ -61,8 +61,8 @@ export class IndexComponent implements OnInit, OnDestroy {
       let scrollPercentRounded = Math.round(scrollPercent*100);
       let textElem = document.getElementById("textElem");
       let real =  0;
-      if(-600 > scrollPercentRounded && scrollPercentRounded > -1800) {
-        real = (scrollPercentRounded + 600) / 10;
+      if(-210 > scrollPercentRounded && scrollPercentRounded > -427) {
+        real = (scrollPercentRounded + 210) / 2;
       }
       console.log(real)
       $(textElem).css('--gradient-x',-real+'%');

@@ -105,6 +105,34 @@
   > .main {
     > .section {
       height: 100vh;
+      &.section-small {
+        height: 60vh;
+        > img {
+          margin-top: -237px;
+        }
+      }
+      &.section-smallest {
+        height: 416px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #181818;
+        margin-bottom: 30px;
+        > .content-text {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+
+          > span {
+            font-size: 68px;
+            text-align: center;
+            color: white;
+            margin-bottom: 30px;
+          }
+        }
+      }
       > .text-content {
         display: flex;
         justify-content: center;
@@ -144,7 +172,7 @@
         }
       }
       > .text-container {
-        padding-top: 300px;
+        padding-top: 75px;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -209,7 +237,7 @@
         }
       }
 
-      > .second-text-container{
+      > .second-text-container {
         display: flex;
         flex-direction: column;
         justify-content: center;

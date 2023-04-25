@@ -9,8 +9,7 @@
         class="navbar-brand"
         placement="bottom"
         [routerLink]="['/home']"
-        target="_blank"
-        tooltip="Designed and Coded by Creative Tim"
+        tooltip="The tool for you"
       >
         <img src="../../../assets/img/apple-icon.png" alt=""><span> SHOP TV• </span>
       </a>
@@ -142,7 +141,7 @@
         <h3>
           Powerful video maker for everyone to create anything anywhere.
         </h3>
-        <button class="btn btn-success mr-1">Sign up to try</button>
+        <button class="btn btn-success mr-1" routerLink="/register">Sign up to try</button>
       </div>
       <div class="icon-bottom"></div>
     </div>
@@ -159,37 +158,37 @@
       </div>
       <div class="media-content">
         <div class="videos">
-          <video controls="false" autoplay loop preload="auto" muted>
-            <source src="../../../assets/video/video1.mp4" type="video/mp4">
+          <video controls="false" autoplay loop [muted]="true">
+            <source src="../../../assets/video/video1_m.mp4" type="video/mp4">
           </video>
-          <video controls="false" autoplay loop preload="auto" muted>
-            <source src="../../../assets/video/video2.mp4" type="video/mp4">
+          <video controls="false" autoplay loop [muted]="true">
+            <source src="../../../assets/video/video2_m.mp4" type="video/mp4">
           </video>
-          <video controls="false" autoplay loop preload="auto" muted>
-            <source src="../../../assets/video/video3.mp4" type="video/mp4">
+          <video controls="false" autoplay loop [muted]="true">
+            <source src="../../../assets/video/video3_m.mp4" type="video/mp4">
           </video>
-          <video controls="false" autoplay loop preload="auto" muted>
-            <source src="../../../assets/video/video4.mp4" type="video/mp4">
+          <video controls="false" autoplay loop [muted]="true">
+            <source src="../../../assets/video/video4_m.mp4" type="video/mp4">
           </video>
-          <video controls="false" autoplay loop preload="auto" muted>
-            <source src="../../../assets/video/video5.mp4" type="video/mp4">
+          <video controls="false" autoplay loop [muted]="true">
+            <source src="../../../assets/video/video5_m.mp4" type="video/mp4">
           </video>
-          <video controls="false" autoplay loop preload="auto" muted>
-            <source src="../../../assets/video/video6.mp4" type="video/mp4">
+          <video controls="false" autoplay loop [muted]="true">
+            <source src="../../../assets/video/video6_m.mp4" type="video/mp4">
           </video>
-          <video controls="false" autoplay loop preload="auto" muted>
-            <source src="../../../assets/video/video7.mp4" type="video/mp4">
+          <video controls="false" autoplay loop [muted]="true">
+            <source src="../../../assets/video/video7_m.mp4" type="video/mp4">
           </video>
-          <video controls="false" autoplay loop preload="auto" muted>
-            <source src="../../../assets/video/video8.mp4" type="video/mp4">
+          <video controls="false" autoplay loop [muted]="true">
+            <source src="../../../assets/video/video8_m.mp4" type="video/mp4">
           </video>
-          <video controls="false" autoplay loop preload="auto" muted>
-            <source src="../../../assets/video/video9.mp4" type="video/mp4">
+          <video controls="false" autoplay loop [muted]="true">
+            <source src="../../../assets/video/video9_m.mp4" type="video/mp4">
           </video>
         </div>
       </div>
     </div>
-    <div class="section" id="scrollElem">
+    <div class="section section-small" id="scrollElem">
       <img class="path" src="assets/img/path4.png" />
       <img class="path path1" src="assets/img/path5.png" />
       <div class="text-container" id="textElem" style="--gradient-x:0%;">
@@ -233,10 +232,16 @@
 
     </div>
 
+    <div class="section section-smallest">
+      <div class="content-text">
+        <span>Start your video-creating journey now.</span>
+        <button class="btn btn-success mr-1" routerLink="/register">Sign up</button>
+      </div>
+    </div>
 
 
 
-
+<!-- 
 
 
 
@@ -2007,11 +2012,11 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
   <footer class="footer">
     <div class="container">
       <div class="row">
-        <div class="col-md-3"><h1 class="title">BLK•</h1></div>
+        <div class="col-md-3"><h1 class="title">SHOP TV•</h1></div>
         <div class="col-md-3">
           <ul class="nav">
             <li class="nav-item">
