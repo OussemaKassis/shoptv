@@ -1,6 +1,6 @@
 .cc-container {
   width: 100%;
-  height: fit-content;
+  height: 100vh;
   position: relative;
   background-color: white;
   > .nav-bar {
@@ -82,6 +82,8 @@
     > .main-container {
       width: calc(100% - 280px);
       border-left: 1px solid #d1d1d1;
+      overflow-y: scroll;
+      height: calc(100vh - 80px);
       > .cc-section {
         padding: 20px;
         > .section-title {
@@ -155,6 +157,5 @@
   }
   > .first-modal {
     position: absolute;
-    
   }
 }
