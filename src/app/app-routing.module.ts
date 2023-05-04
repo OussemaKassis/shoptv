@@ -10,6 +10,7 @@ import { LandingpageComponent } from "./pages/examples/landingpage/landingpage.c
 import { PageLayoutComponent } from "./pages/examples/page-layout/components/page-layout/page-layout.component";
 import { TemplatesComponent } from "./pages/examples/page-layout/components/templates/templates.component";
 import { DashboardComponent } from "./pages/examples/page-layout/components/dashboard/dashboard.component";
+import { VideosComponent } from "./pages/examples/page-layout/components/videos/videos.component";
 
 const routes: Routes = [
   { path: "", redirectTo: "home", pathMatch: "full" },
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: "dashboard", component: PageLayoutComponent, children: [
     { path: "", component: DashboardComponent },
     { path: "templates", component: TemplatesComponent },
+    { path: "videos", component: VideosComponent },
   ] },
   { path: "landing", component: LandingpageComponent }
 ];
