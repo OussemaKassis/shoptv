@@ -5,11 +5,12 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { TemplatesComponent } from './components/templates/templates.component';
 import { RouterModule } from '@angular/router';
 import { VideosComponent } from './components/videos/videos.component';
+import { AddTemplateComponent } from './components/add-template/add-template.component';
 
 
 
 @NgModule({
-  declarations: [PageLayoutComponent, DashboardComponent, TemplatesComponent, VideosComponent],
+  declarations: [PageLayoutComponent, DashboardComponent, TemplatesComponent, VideosComponent, AddTemplateComponent],
   imports: [
     CommonModule,
     RouterModule

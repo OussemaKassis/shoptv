@@ -11,6 +11,10 @@ import { PageLayoutComponent } from "./pages/examples/page-layout/components/pag
 import { TemplatesComponent } from "./pages/examples/page-layout/components/templates/templates.component";
 import { DashboardComponent } from "./pages/examples/page-layout/components/dashboard/dashboard.component";
 import { VideosComponent } from "./pages/examples/page-layout/components/videos/videos.component";
+import { LoginComponent } from "./pages/examples/auth/components/login/login.component";
+import { ForgetPasswordComponent } from "./pages/examples/auth/components/forget-password/forget-password.component";
+import { AuthComponent } from "./pages/examples/auth/auth.component";
+import { AddTemplateComponent } from "./pages/examples/page-layout/components/add-template/add-template.component";
 
 const routes: Routes = [
   { path: "", redirectTo: "home", pathMatch: "full" },
@@ -21,6 +25,13 @@ const routes: Routes = [
     { path: "", component: DashboardComponent },
     { path: "templates", component: TemplatesComponent },
     { path: "videos", component: VideosComponent },
+    { path: "add-template", component: AddTemplateComponent },
+  ] },
+  { path: "auth", component: AuthComponent, children: [
+    { path: "", redirectTo: "login", pathMatch: "full" },
+    { path: "login", component: LoginComponent },
+    { path: "register", component: RegisterpageComponent },
+    { path: "forget-password", component: ForgetPasswordComponent },
   ] },
   { path: "landing", component: LandingpageComponent }
 ];

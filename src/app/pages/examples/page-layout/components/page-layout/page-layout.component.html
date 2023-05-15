@@ -1,45 +1,42 @@
 <div class="cc-container">
-    <div class="nav-bar">
-      <div class="cc-brand">
-        <a
-          class="navbar-brand"
-          placement="bottom"
-          [routerLink]="['/home']"
-        >
-          <img src="../../../assets/img/apple-icon.png" alt="logo" /><span>
-            SHOP TV•
-          </span>
-        </a>
-      </div>
-      <div class="cc-items"></div>
+  <div class="nav-bar">
+    <div class="cc-brand">
+      <a class="navbar-brand" placement="bottom" [routerLink]="['/home']">
+        <img src="../../../assets/img/apple-icon.png" alt="logo" /><span>
+          SHOP TV•
+        </span>
+      </a>
     </div>
-    <div class="main">
-      <div class="side-bar">
-          <div class="side-bar-title-container">
-              <div class="menu-title" routerLink="../dashboard">
-                  <img src="../../../assets/img/house.png" alt="home">
-                  <h4>Welcome home</h4>
-              </div>
-          </div>
-          <div class="side-menu">
-              <span class="title">
-                  Workspace
-              </span>
-              <div class="menu-items">
-                  <h5><img src="../../../assets/img/cloud.png" alt="cloud"> My space</h5>
-                  <ul>
-                      <li routerLink="./templates">My Templates</li>
-                      <li routerLink="./videos">My Videos</li>
-                  </ul>
-              </div>
-          </div>
+    <div class="cc-items"></div>
+  </div>
+  <div class="main">
+    <div class="side-bar">
+      <div class="side-bar-title-container">
+        <div class="menu-title" routerLink="../dashboard">
+          <img src="../../../assets/img/house.png" alt="home" />
+          <h4>Welcome home</h4>
+        </div>
       </div>
-      <div class="main-container">
-        <router-outlet></router-outlet>
+      <div class="side-menu">
+        <span class="title"> Workspace </span>
+        <div class="menu-items">
+          <h5>
+            <img src="../../../assets/img/cloud.png" alt="cloud" /> My space
+          </h5>
+          <ul>
+            <li routerLink="./templates">My Templates</li>
+            <li routerLink="./videos">My Videos</li>
+          </ul>
+        </div>
       </div>
     </div>
-    <div class="first-modal">
-      
+    <div class="main-container">
+      <router-outlet></router-outlet>
     </div>
   </div>
-  
+  <div class="cc-modal">
+    <div class="my-modal-panel">
+
+    </div>
+  </div>
+</div>

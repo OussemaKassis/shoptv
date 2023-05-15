@@ -15,7 +15,19 @@
       background-color: rgb(223, 223, 223);
       border-radius: 9px;
       position: relative;
-      > img {
+      cursor: pointer;
+      transition: 0.5s transform;
+      &:hover {
+        transform: scale(1.05);
+      }
+
+      > .plus {
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        left: calc(50% - 50px);
+        top: calc(50% - 50px);
+        opacity: 0.5;
       }
       > span {
         position: absolute;
@@ -59,10 +71,51 @@
       &::-webkit-scrollbar {
         display: none; /* Safari and Chrome */
       }
-      > video {
+      > .cc-card {
         width: 250px;
         border-radius: 20px;
         pointer-events: none;
+        transition: transform 0.1s ease;
+        position: relative;
+
+        // &::before {
+        //   content: "";
+        //   display: block;
+        //   box-shadow: #000 0 0 100px 30px;
+        //   position: absolute;
+        //   top: 20%;
+        //   right: 20%;
+        //   bottom: 10px;
+        //   left: 20%;
+        //   transition: opacity 0.3s ease, box-shadow 0.5s ease;
+        //   z-index: -1;
+        //   opacity: 1;
+        //   mix-blend-mode: overlay;
+        // }
+
+        // &:active {
+        //   transform: scale(0.99);
+        // }
+
+        // &:hover {
+        //   display: none;
+        //   &::before {
+        //     box-shadow: #000 0 -5px 120px 20px;
+        //     opacity: 1;
+        //   }
+
+        //   video {
+        //     transform: rotate3d(0.5, 0, 0.1, 5deg);
+        //     &::before {
+        //       opacity: 0.4;
+        //     }
+        //   }
+        // }
+        > video {
+          width: 250px;
+          border-radius: 20px;
+          pointer-events: none;
+        }
       }
     }
   }
