@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import $ from 'jquery';
 
 @Component({
   selector: 'app-add-template',
@@ -7,9 +8,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddTemplateComponent implements OnInit {
 
+  list = [1,2];
   constructor() { }
 
   ngOnInit(): void {
+    $(document).on("change", ".file_multi_video", function(evt) {
+      var $source = $('#video_here');
+      $source[0].src = URL.createObjectURL(this.files[0]);
+      $source.parent()[0].load();
+    });
+    this.addField();
+  }
+
+  addField() {
+    $('#add-field').click(function() {
+      let fieldHtml ='<div _ngcontent-gtq-c101="" class="field-line"><div _ngcontent-gtq-c101="" class="field-name"><div _ngcontent-gtq-c101="" class="title-field">asset name</div><input _ngcontent-gtq-c101="" type="text"></div><div _ngcontent-gtq-c101="" class="field-name"><div _ngcontent-gtq-c101="" class="title-field">asset type</div><select _ngcontent-gtq-c101="" name="" id=""><option _ngcontent-gtq-c101="" value="">Text</option><option _ngcontent-gtq-c101="" value="">Image</option><option _ngcontent-gtq-c101="" value="">Audio</option><option _ngcontent-gtq-c101="" value="">Video</option></select></div><div _ngcontent-gtq-c101="" class="action"><button _ngcontent-gtq-c101="">delete</button></div></div>';
+      $("#container-fields").append(fieldHtml);
+    });
+    
   }
 }
 
