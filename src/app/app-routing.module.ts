@@ -25,8 +25,9 @@ const routes: Routes = [
   { path: "dashboard", component: PageLayoutComponent, children: [
     { path: "", component: DashboardComponent },
     { path: "templates", component: TemplatesComponent },
-    { path: "template/:id", component: TemplateComponent },
     { path: "videos", component: VideosComponent },
+    { path: "template/:id", component: TemplateComponent },
+    { path: "video/:id", component: TemplateComponent },
     { path: "add-template", component: AddTemplateComponent },
   ] },
   { path: "auth", component: AuthComponent, children: [

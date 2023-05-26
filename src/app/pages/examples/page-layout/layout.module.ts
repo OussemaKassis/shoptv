@@ -9,11 +9,12 @@ import { AddTemplateComponent } from './components/add-template/add-template.com
 import { GenerateComponent } from './components/generate/generate.component';
 import { FormsModule } from '@angular/forms';
 import { TemplateComponent } from './components/template/template.component';
+import { VideoComponent } from './components/video/video.component';
 
 
 
 @NgModule({
-  declarations: [PageLayoutComponent, DashboardComponent, TemplatesComponent, VideosComponent, AddTemplateComponent, GenerateComponent, TemplateComponent],
+  declarations: [PageLayoutComponent, DashboardComponent, TemplatesComponent, VideosComponent, AddTemplateComponent, GenerateComponent, TemplateComponent, VideoComponent],
   imports: [
     CommonModule,
     RouterModule,

@@ -231,7 +231,7 @@ h2 {
           }
 
           > .cc-input-group-2 {
-            min-width: 500px;
+            min-width: 630px;
             padding: 20px 10px;
             margin: 20px 0;
             background-color: #4854611c;
@@ -273,7 +273,7 @@ h2 {
                   text-align: left;
                 }
                 > input {
-                  width: 250px;
+                  width: 382px;
                   height: 35px;
                   border-radius: 5px;
                   border: 0;
@@ -281,6 +281,10 @@ h2 {
                   padding: 0 10px;
                   margin: 5px 10px 5px 0;
                   transition: 1s all;
+
+                  &.small {
+                    width: 135px;
+                  }
 
                   &:active,
                   &:focus {
@@ -368,7 +372,7 @@ h2 {
 
               > input {
                 width: 400px;
-                height: 100%;
+                height: calc( 100% - 5px);
                 position: absolute;
                 left: 0;
                 z-index: 1;

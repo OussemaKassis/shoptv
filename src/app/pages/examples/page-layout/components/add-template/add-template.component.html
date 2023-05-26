@@ -6,9 +6,9 @@
         <div class="cc-left">
           <div class="cc-input-group">
             <div class="input-title">Select the template file to upload:</div>
-            <div class="upload-wrapper" style="width: 500px;">
-              <div class="upload drop-area" style="width: 500px;">
-                <div class="upload-info" style="width: 320px;">
+            <div class="upload-wrapper" style="width: 630px;">
+              <div class="upload drop-area" style="width: 630px;">
+                <div class="upload-info" style="width: 457px;">
                   <svg
                     t="1581822650945"
                     class="clip"
@@ -39,6 +39,38 @@
               </div>
             </div>
           </div>
+
+          <div id="container-fields" class="cc-input-group-2">
+            <div  class="field-line">
+              <div class="field-name">
+                <div class="title-field">Template name</div>
+                <input class="small" type="text"/>
+              </div>
+              <div class="field-name">
+                <div class="title-field">Template duration</div>
+                <input class="small" type="text"/>
+              </div>
+              <div class="field-name">
+                <div class="title-field">Template category</div>
+                <select name="" id="" >
+                  <option value="instagram">Instagram</option>
+                  <option value="youtubeads">YouTube Ads</option>
+                  <option value="facebook">Facebook</option>
+                  <option value="tvads">TV Ads</option>
+                  <option value="tiktok">TikTok</option>
+                </select>
+              </div>
+              <div class="field-name">
+                <div class="title-field">Template ratio</div>
+                <select name="" id="" >
+                  <option value="6:19">6:19</option>
+                  <option value="4:3">4:3</option>
+                  <option value="9:16">9:16</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
           <div id="container-fields" class="cc-input-group-2">
             <div class="container-header">
               <h4>assets fields:</h4>
@@ -74,7 +106,7 @@
               <h4>Upload template preview (optional)</h4>
             </div>
             <div class="input-video-container">
-              <video width="400" [controls]="false" autoplay muted>
+              <video width="400" [controls]="false" autoplay [muted]="true">
                 <source src="mov_bbb.mp4" id="video_here" />
                 Your browser does not support HTML5 video.
               </video>
