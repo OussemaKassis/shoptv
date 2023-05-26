@@ -1,5 +1,13 @@
 <div class="cc-section">
-  <div class="section-title">TikTok videos</div>
+  <div class="test">
+    <div class="section-title" [routerLink]="['./video-list/tiktok']">TikTok videos</div>
+    <form action="" class="search-bar">
+      <input type="search" name="search" pattern=".*\S.*" required />
+      <button class="search-btn" type="submit">
+        <span>Search</span>
+      </button>
+    </form>
+  </div>
   <div class="section-items-videos">
     <div class="content-card">
       <img src="" alt="" />
@@ -14,7 +22,15 @@
 </div>
 
 <div class="cc-section">
-  <div class="section-title">Instagram Videos</div>
+  <div class="test">
+    <div class="section-title" [routerLink]="['./video-list/instagram']">Instagram Videos</div>
+    <form action="" class="search-bar">
+      <input type="search" name="search" pattern=".*\S.*" required />
+      <button class="search-btn" type="submit">
+        <span>Search</span>
+      </button>
+    </form>
+  </div>
   <div class="section-items-videos">
     <div class="content-card">
       <img src="" alt="" />
@@ -29,7 +45,15 @@
 </div>
 
 <div class="cc-section">
-  <div class="section-title">Facebook Videos</div>
+  <div class="test">
+    <div class="section-title" [routerLink]="['./video-list/facebook']">Facebook Videos</div>
+    <form action="" class="search-bar">
+      <input type="search" name="search" pattern=".*\S.*" required />
+      <button class="search-btn" type="submit">
+        <span>Search</span>
+      </button>
+    </form>
+  </div>
   <div class="section-items-videos">
     <div class="content-card">
       <img src="" alt="" />
