@@ -53,6 +53,7 @@
       align-items: center;
       display: flex;
       overflow-x: auto;
+      overflow-y: hidden;
       gap: 35px;
       -ms-overflow-style: none; /* Internet Explorer 10+ */
       scrollbar-width: none; /* Firefox */
@@ -63,6 +64,7 @@
         &:hover {
           > .informations {
             opacity: 1;
+            transform: translate3d(0, 0, 0);
           }
         }
         cursor: pointer;
@@ -78,14 +80,15 @@
           width: 100%;
           height: calc(100% - 5px);
           border-radius: 20px;
-          background-color: #193db375;
+          background: linear-gradient(41deg, #193db375 63%, transparent 77%);
           display: flex;
           justify-content: flex-end;
           flex-direction: column;
           align-items: center;
           padding: 20px;
           opacity: 0;
-          transition: 0.5s opacity;
+          transition: 0.5s all;
+          transform: translate3d(-20px, 39px, 0);
           > span {
             color: white;
             font-weight: 700;
