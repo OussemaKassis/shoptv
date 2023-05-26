@@ -7,8 +7,11 @@ import $ from 'jquery';
   styleUrls: ['./add-template.component.scss']
 })
 export class AddTemplateComponent implements OnInit {
-
-  list = [1,2];
+  list: {
+    id:number;
+    name: string;
+    type: string;
+  }[] = [{id:0,name:"",type:""}];
   constructor() { }
 
   ngOnInit(): void {
@@ -17,16 +20,42 @@ export class AddTemplateComponent implements OnInit {
       $source[0].src = URL.createObjectURL(this.files[0]);
       $source.parent()[0].load();
     });
-    this.addField();
   }
 
   addField() {
-    $('#add-field').click(function() {
-      let fieldHtml ='<div _ngcontent-gtq-c101="" class="field-line"><div _ngcontent-gtq-c101="" class="field-name"><div _ngcontent-gtq-c101="" class="title-field">asset name</div><input _ngcontent-gtq-c101="" type="text"></div><div _ngcontent-gtq-c101="" class="field-name"><div _ngcontent-gtq-c101="" class="title-field">asset type</div><select _ngcontent-gtq-c101="" name="" id=""><option _ngcontent-gtq-c101="" value="">Text</option><option _ngcontent-gtq-c101="" value="">Image</option><option _ngcontent-gtq-c101="" value="">Audio</option><option _ngcontent-gtq-c101="" value="">Video</option></select></div><div _ngcontent-gtq-c101="" class="action"><button _ngcontent-gtq-c101="">delete</button></div></div>';
-      $("#container-fields").append(fieldHtml);
-    });
-    
+  let id = this.list.length;
+  let fields = {
+    id:id,
+      name: "",
+      type: "",
+    }
+    this.list.push(fields);
+    console.log(this.list);
   }
+
+  deleteField(id) {
+    console.log(id);
+    let deleted = false;
+    this.list.forEach((element: any, index: number) => {
+
+      console.log(element.id);
+      if((element.id == id) && (!deleted)) {
+        console.log("yes")
+        this.list.splice(index , 1);
+        deleted = true;
+      }
+    });
+
+    this.list.forEach((element: any, index: number) => {
+      element.id = index;
+    });
+  }
+
+  getFile(element) {
+    console.log(element.target.files[0]);
+    $("#file-name").html(element.target.files[0].name)
+  }
+
 }
 
 

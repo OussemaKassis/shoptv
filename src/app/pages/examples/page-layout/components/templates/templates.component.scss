@@ -49,7 +49,7 @@
       flex-direction: row;
       justify-content: space-between;
       column-gap: 20px;
-      > .videos {
+      .videos {
         align-items: center;
         display: flex;
         overflow-x: auto;
@@ -59,10 +59,13 @@
         &::-webkit-scrollbar {
           display: none; /* Safari and Chrome */
         }
-        > video {
-          width: 250px;
-          border-radius: 20px;
-          pointer-events: none;
+        div {
+          cursor: pointer;
+          video {
+            width: 250px;
+            border-radius: 20px;
+            pointer-events: none;
+          }
         }
       }
     }

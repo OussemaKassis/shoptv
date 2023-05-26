@@ -6,9 +6,9 @@
         <div class="cc-left">
           <div class="cc-input-group">
             <div class="input-title">Select the template file to upload:</div>
-            <div class="upload-wrapper">
-              <div class="upload drop-area">
-                <div class="upload-info">
+            <div class="upload-wrapper" style="width: 500px;">
+              <div class="upload drop-area" style="width: 500px;">
+                <div class="upload-info" style="width: 320px;">
                   <svg
                     t="1581822650945"
                     class="clip"
@@ -24,7 +24,7 @@
                       p-id="3251"
                     ></path>
                   </svg>
-                  <span class="upload-filename inactive drop-text"
+                  <span id="file-name" class="upload-filename inactive drop-text"
                     >No file selected</span
                   >
                 </div>
@@ -42,28 +42,27 @@
           <div id="container-fields" class="cc-input-group-2">
             <div class="container-header">
               <h4>assets fields:</h4>
-              <button id="add-field">add</button>
+              <button id="add-field" (click)="addField()">add</button>
             </div>
 
             <div *ngFor="let item of list" class="field-line">
               <div class="field-name">
                 <div class="title-field">asset name</div>
-                <input type="text" />
+                <input type="text" [(ngModel)]="item.name"/>
               </div>
               <div class="field-name">
                 <div class="title-field">asset type</div>
-                <select name="" id="">
-                  <option value="">Text</option>
-                  <option value="">Image</option>
-                  <option value="">Audio</option>
-                  <option value="">Video</option>
+                <select name="" id="" [(ngModel)]="item.type">
+                  <option value="text">Text</option>
+                  <option value="image">Image</option>
+                  <option value="audio">Audio</option>
+                  <option value="video">Video</option>
                 </select>
               </div>
               <div class="action">
-                <button>delete</button>
+                <button (click)="deleteField(item.id)">delete</button>
               </div>
             </div>
-
           </div>
           <div class="submit-files">
             <button>Upload template</button>

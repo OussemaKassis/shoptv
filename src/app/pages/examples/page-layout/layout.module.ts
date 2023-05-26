@@ -7,14 +7,17 @@ import { RouterModule } from '@angular/router';
 import { VideosComponent } from './components/videos/videos.component';
 import { AddTemplateComponent } from './components/add-template/add-template.component';
 import { GenerateComponent } from './components/generate/generate.component';
+import { FormsModule } from '@angular/forms';
+import { TemplateComponent } from './components/template/template.component';
 
 
 
 @NgModule({
-  declarations: [PageLayoutComponent, DashboardComponent, TemplatesComponent, VideosComponent, AddTemplateComponent, GenerateComponent],
+  declarations: [PageLayoutComponent, DashboardComponent, TemplatesComponent, VideosComponent, AddTemplateComponent, GenerateComponent, TemplateComponent],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    FormsModule,
   ]
 })
 export class LayoutModule { }

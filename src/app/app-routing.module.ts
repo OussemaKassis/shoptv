@@ -15,6 +15,7 @@ import { LoginComponent } from "./pages/examples/auth/components/login/login.com
 import { ForgetPasswordComponent } from "./pages/examples/auth/components/forget-password/forget-password.component";
 import { AuthComponent } from "./pages/examples/auth/auth.component";
 import { AddTemplateComponent } from "./pages/examples/page-layout/components/add-template/add-template.component";
+import { TemplateComponent } from "./pages/examples/page-layout/components/template/template.component";
 
 const routes: Routes = [
   { path: "", redirectTo: "home", pathMatch: "full" },
@@ -24,6 +25,7 @@ const routes: Routes = [
   { path: "dashboard", component: PageLayoutComponent, children: [
     { path: "", component: DashboardComponent },
     { path: "templates", component: TemplatesComponent },
+    { path: "template/:id", component: TemplateComponent },
     { path: "videos", component: VideosComponent },
     { path: "add-template", component: AddTemplateComponent },
   ] },

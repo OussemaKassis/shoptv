@@ -208,6 +208,10 @@ h2 {
       color: black;
     }
     > .cc-form-container {
+      padding: 18px 25px;
+      border-radius: 10px;
+      background-color: #f3f3f3;
+      width: fit-content;
       > .wrapper {
         display: flex;
         justify-content: flex-start;
@@ -227,6 +231,7 @@ h2 {
           }
 
           > .cc-input-group-2 {
+            min-width: 500px;
             padding: 20px 10px;
             margin: 20px 0;
             background-color: #4854611c;
