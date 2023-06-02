@@ -6,8 +6,9 @@
     > .navbar-translate {
       > .navbar-brand {
         img {
-          filter: invert(1);
-          width: 55px;
+          width: 141px;
+          height: 57px;
+          object-fit: cover;
         }
       }
     }
@@ -37,7 +38,11 @@
     > .container {
       > .content-center {
         width: 87%;
-
+        >img {
+          width: 76%;
+          height: 232px;
+          object-fit: cover;
+        }
         > h3 {
           font-size: 45px;
         }

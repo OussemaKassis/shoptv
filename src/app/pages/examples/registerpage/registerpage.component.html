@@ -159,10 +159,27 @@
                     </div>
                     <input
                       class="form-control"
-                      placeholder="Full Name"
+                      placeholder="First Name"
                       type="text"
                       (focus)="focus = true"
                       (blur)="focus = false"
+                    />
+                  </div>
+                  <div
+                    class="input-group"
+                    [ngClass]="{ 'input-group-focus': focus0 === true }"
+                  >
+                    <div class="input-group-prepend">
+                      <div class="input-group-text">
+                        <i class="tim-icons icon-single-02"> </i>
+                      </div>
+                    </div>
+                    <input
+                      class="form-control"
+                      placeholder="Last Name"
+                      type="text"
+                      (focus)="focus0 = true"
+                      (blur)="focus0 = false"
                     />
                   </div>
                   <div
