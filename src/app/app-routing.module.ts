@@ -17,6 +17,7 @@ import { AuthComponent } from "./pages/examples/auth/auth.component";
 import { AddTemplateComponent } from "./pages/examples/page-layout/components/add-template/add-template.component";
 import { TemplateComponent } from "./pages/examples/page-layout/components/template/template.component";
 import { VideoListComponent } from "./pages/examples/page-layout/components/video-list/video-list.component";
+import { VideoComponent } from "./pages/examples/page-layout/components/video/video.component";
 
 const routes: Routes = [
   { path: "", redirectTo: "home", pathMatch: "full" },
@@ -29,7 +30,7 @@ const routes: Routes = [
     { path: "videos", component: VideosComponent },
     { path: "videos/video-list/:cat", component: VideoListComponent },
     { path: "template/:id", component: TemplateComponent },
-    { path: "video/:id", component: TemplateComponent },
+    { path: "video/:id", component: VideoComponent },
     { path: "add-template", component: AddTemplateComponent },
   ] },
   { path: "auth", component: AuthComponent, children: [

@@ -1,0 +1,39 @@
+
+.cc-container {
+    > .cc-form {
+      padding: 60px 30px;
+      > h2 {
+        text-align: left;
+        color: black;
+      }
+      > .cc-form-container {
+        padding: 18px 25px;
+        border-radius: 10px;
+        background-color: #f3f3f3;
+        width: 100%;
+        > .wrapper {
+          display: flex;
+          justify-content: flex-start;
+          align-items: flex-start;
+          flex-direction: column;
+          gap: 50px;
+
+          > h2 {
+            color: black;
+            margin: 0;
+          }
+          > video {
+            width: 80%;
+            height: 710px;
+            object-fit: cover;
+            margin: auto;
+          }
+          > .infos {
+            display: flex;
+            flex-direction: column;
+          }
+        }
+      }
+    }
+  }
+  

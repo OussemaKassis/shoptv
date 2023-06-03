@@ -42,12 +42,19 @@
     flex-direction: row;
     justify-content: space-between;
     column-gap: 20px;
+    overflow: hidden;
     > .content-card {
-      width: 32%;
+      width: 514px;
       height: 250px;
       background-color: rgb(223, 223, 223);
       border-radius: 9px;
       position: relative;
+      overflow: hidden;
+      > video {
+        height: 100%;
+        object-fit: cover;
+        width: 100%;
+      }
       > img {
       }
       > span {

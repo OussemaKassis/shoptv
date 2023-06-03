@@ -9,14 +9,10 @@
     </form>
   </div>
   <div class="section-items-videos">
-    <div class="content-card">
-      <img src="" alt="" />
-    </div>
-    <div class="content-card">
-      <img src="" alt="" />
-    </div>
-    <div class="content-card">
-      <img src="" alt="" />
+    <div *ngFor="let item of tiktokvideos" [routerLink]="['../video/'+item.id]" class="content-card">
+      <video [controls]="false" autoplay loop [muted]="true" >
+        <source  [src]="item.preview" type="video/mp4" />
+      </video>
     </div>
   </div>
 </div>
@@ -32,14 +28,10 @@
     </form>
   </div>
   <div class="section-items-videos">
-    <div class="content-card">
-      <img src="" alt="" />
-    </div>
-    <div class="content-card">
-      <img src="" alt="" />
-    </div>
-    <div class="content-card">
-      <img src="" alt="" />
+    <div *ngFor="let item of facebookvideos" [routerLink]="['../video/'+item.id]" class="content-card">
+      <video [controls]="false" autoplay loop [muted]="true" >
+        <source  [src]="item.preview" type="video/mp4" />
+      </video>
     </div>
   </div>
 </div>
@@ -55,14 +47,10 @@
     </form>
   </div>
   <div class="section-items-videos">
-    <div class="content-card">
-      <img src="" alt="" />
-    </div>
-    <div class="content-card">
-      <img src="" alt="" />
-    </div>
-    <div class="content-card">
-      <img src="" alt="" />
+    <div *ngFor="let item of youtubevideos" [routerLink]="['../video/'+item.id]" class="content-card">
+      <video [controls]="false" autoplay loop [muted]="true" >
+        <source  [src]="item.preview" type="video/mp4" />
+      </video>
     </div>
   </div>
 </div>

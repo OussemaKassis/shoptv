@@ -1,1 +1,28 @@
-<p>video works!</p>
+<div class="cc-container">
+    <div class="cc-form">
+      <h2>Here's your video</h2>
+      <div class="cc-form-container">
+        <div class="wrapper">
+          <h2>{{video[0].name}}</h2>
+          <video [controls]="true" autoplay loop [muted]="false" >
+            <source  [src]="video[0].preview" type="video/mp4" />
+          </video>
+          <div class="infos">
+            <span>
+                title: {{video[0].name}}
+            </span>
+            <span>
+                category: {{video[0].category}}
+            </span>
+            <span>
+                duration: {{video[0].duration}}
+            </span>
+          </div>
+
+          <a href="{{video[0].preview}}" download>Download</a>
+          <a href="javascript:void(0)" download>Share</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  
