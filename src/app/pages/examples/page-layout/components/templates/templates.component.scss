@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 .cc-section {
   padding: 20px;
   > .section-title {
@@ -61,41 +62,65 @@
         display: none; /* Safari and Chrome */
       }
       .card-video {
-        &:hover {
+        > .m-cont {
+          &:hover {
+            > .informations {
+              opacity: 1;
+              transform: translate3d(0, 0, 0);
+            }
+          }
+          cursor: pointer;
+          position: relative;
+          > video {
+            width: 250px;
+            border-radius: 20px;
+            pointer-events: none;
+          }
           > .informations {
-            opacity: 1;
-            transform: translate3d(0, 0, 0);
-          }
-        }
-        cursor: pointer;
-        position: relative;
-        > video {
-          width: 250px;
-          border-radius: 20px;
-          pointer-events: none;
-        }
-        > .informations {
-          position: absolute;
-          top: 0;
-          width: 100%;
-          height: calc(100% - 5px);
-          border-radius: 20px;
-          background: linear-gradient(41deg, #193db375 63%, transparent 77%);
-          display: flex;
-          justify-content: flex-end;
-          flex-direction: column;
-          align-items: center;
-          padding: 20px;
-          opacity: 0;
-          transition: 0.5s all;
-          transform: translate3d(-20px, 39px, 0);
-          > span {
-            color: white;
-            font-weight: 700;
-            text-align: center;
+            position: absolute;
+            top: 0;
             width: 100%;
-            background-color: #01183e99;
+            height: calc(100% - 5px);
+            border-radius: 20px;
+            background: linear-gradient(41deg, #193db375 63%, transparent 77%);
+            display: flex;
+            justify-content: flex-end;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            opacity: 0;
+            transition: 0.5s all;
+            transform: translate3d(-20px, 39px, 0);
+            > span {
+              color: white;
+              font-weight: 700;
+              text-align: center;
+              width: 100%;
+              background-color: #01183e99;
+            }
           }
+        }
+
+        > .rating-section {
+          border-top: 1px solid #eee;
+          padding: 20px 12px;
+          margin-top: 5px;
+          display: table;
+          content: "";
+          clear: both;
+          width: 100%;
+        }
+
+        .rating-with-color {
+          color: #ffa500;
+        }
+
+        .stars-rating {
+          float: left;
+        }
+
+        .stars-rating > span {
+          font-size: small;
         }
       }
     }

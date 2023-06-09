@@ -2,14 +2,61 @@
   <div class="section-title">9:16 Templates</div>
   <div class="section-items-templates">
     <div class="videos">
-      <div class="card-video" *ngFor="let item of templates1" (click)="selectTemplate(item.id)">
-        <video [controls]="false" autoplay loop [muted]="true" >
-          <source  [src]="item.preview" type="video/mp4" />
-        </video>
-        <div class="informations">
-          <span class="name">{{item.name}}</span>
-          <span class="duration">{{item.duration}}</span>
-          <span class="category">{{item.category}}</span>
+      <div class="card-video" *ngFor="let item of templates1">
+        <div class="m-cont" (click)="selectTemplate(item.id)">
+          <video [controls]="false" autoplay loop [muted]="true">
+            <source [src]="item.preview" type="video/mp4" />
+          </video>
+          <div class="informations">
+            <span class="name">{{ item.name }}</span>
+            <span class="duration">{{ item.duration }}</span>
+            <span class="category">{{ item.category }}</span>
+          </div>
+        </div>
+        <div class="rating-section">
+          <div class="stars-rating">
+            <i
+              [ngClass]="{
+                'far fa-star': 0 > item.rating,
+                'fas fa-star-half': 0 < item.rating < 1,
+                'fas fa-star': item.rating >= 1
+              }"
+              class="rating-with-color"
+            ></i>
+            <i
+              [ngClass]="{
+                'far fa-star': 1 > item.rating,
+                'fas fa-star-half': 1 < item.rating < 2,
+                'fas fa-star': item.rating >= 2
+              }"
+              class="rating-with-color"
+            ></i>
+            <i
+              [ngClass]="{
+                'far fa-star': 2 > item.rating,
+                'fas fa-star-half': 2 < item.rating < 3,
+                'fas fa-star': item.rating >= 3
+              }"
+              class="rating-with-color"
+            ></i>
+            <i
+              [ngClass]="{
+                'far fa-star': 3 > item.rating,
+                'fas fa-star-half': 3 < item.rating < 4,
+                'fas fa-star': item.rating >= 4
+              }"
+              class="rating-with-color"
+            ></i>
+            <i
+              [ngClass]="{
+                'far fa-star': 4 > item.rating,
+                'fas fa-star-half': 4 < item.rating < 5,
+                'fas fa-star': item.rating >= 5
+              }"
+              class="rating-with-color"
+            ></i>
+            <span>{{ item.rating }} out of 5</span>
+          </div>
         </div>
       </div>
     </div>
@@ -17,41 +64,131 @@
 </div>
 
 <div class="cc-section">
-    <div class="section-title">
-      16:9 Templates
-    </div>
-    <div class="section-items-templates">
-      <div class="videos">
-        <div class="card-video" *ngFor="let item of templates1" (click)="selectTemplate(item.id)">
-          <video [controls]="false" autoplay loop [muted]="true" >
-            <source  [src]="item.preview" type="video/mp4" />
+  <div class="section-title">16:9 Templates</div>
+  <div class="section-items-templates">
+    <div class="videos">
+      <div class="card-video" *ngFor="let item of templates1">
+        <div class="m-cont" (click)="selectTemplate(item.id)">
+          <video [controls]="false" autoplay loop [muted]="true">
+            <source [src]="item.preview" type="video/mp4" />
           </video>
           <div class="informations">
-            <span class="name">{{item.name}}</span>
-            <span class="duration">{{item.duration}}</span>
-            <span class="category">{{item.category}}</span>
+            <span class="name">{{ item.name }}</span>
+            <span class="duration">{{ item.duration }}</span>
+            <span class="category">{{ item.category }}</span>
+          </div>
+        </div>
+        <div class="rating-section">
+          <div class="stars-rating">
+            <i
+              [ngClass]="{
+                'far fa-star': 0 > item.rating,
+                'fas fa-star-half': 0 < item.rating < 1,
+                'fas fa-star': item.rating >= 1
+              }"
+              class="rating-with-color"
+            ></i>
+            <i
+              [ngClass]="{
+                'far fa-star': 1 > item.rating,
+                'fas fa-star-half': 1 < item.rating < 2,
+                'fas fa-star': item.rating >= 2
+              }"
+              class="rating-with-color"
+            ></i>
+            <i
+              [ngClass]="{
+                'far fa-star': 2 > item.rating,
+                'fas fa-star-half': 2 < item.rating < 3,
+                'fas fa-star': item.rating >= 3
+              }"
+              class="rating-with-color"
+            ></i>
+            <i
+              [ngClass]="{
+                'far fa-star': 3 > item.rating,
+                'fas fa-star-half': 3 < item.rating < 4,
+                'fas fa-star': item.rating >= 4
+              }"
+              class="rating-with-color"
+            ></i>
+            <i
+              [ngClass]="{
+                'far fa-star': 4 > item.rating,
+                'fas fa-star-half': 4 < item.rating < 5,
+                'fas fa-star': item.rating >= 5
+              }"
+              class="rating-with-color"
+            ></i>
+            <span>{{ item.rating }} out of 5</span>
           </div>
         </div>
       </div>
     </div>
   </div>
+</div>
 
-  <div class="cc-section">
-    <div class="section-title">
-      Latest Templates
-    </div>
-    <div class="section-items-templates">
-      <div class="videos">
-        <div class="card-video" *ngFor="let item of templates1" (click)="selectTemplate(item.id)">
-          <video [controls]="false" autoplay loop [muted]="true" >
-            <source  [src]="item.preview" type="video/mp4" />
+<div class="cc-section">
+  <div class="section-title">Latest Templates</div>
+  <div class="section-items-templates">
+    <div class="videos">
+      <div class="card-video" *ngFor="let item of templates1">
+        <div class="m-cont" (click)="selectTemplate(item.id)">
+          <video [controls]="false" autoplay loop [muted]="true">
+            <source [src]="item.preview" type="video/mp4" />
           </video>
           <div class="informations">
-            <span class="name">{{item.name}}</span>
-            <span class="duration">{{item.duration}}</span>
-            <span class="category">{{item.category}}</span>
+            <span class="name">{{ item.name }}</span>
+            <span class="duration">{{ item.duration }}</span>
+            <span class="category">{{ item.category }}</span>
+          </div>
+        </div>
+        <div class="rating-section">
+          <div class="stars-rating">
+            <i
+              [ngClass]="{
+                'far fa-star': 0 > item.rating,
+                'fas fa-star-half': 0 < item.rating < 1,
+                'fas fa-star': item.rating >= 1
+              }"
+              class="rating-with-color"
+            ></i>
+            <i
+              [ngClass]="{
+                'far fa-star': 1 > item.rating,
+                'fas fa-star-half': 1 < item.rating < 2,
+                'fas fa-star': item.rating >= 2
+              }"
+              class="rating-with-color"
+            ></i>
+            <i
+              [ngClass]="{
+                'far fa-star': 2 > item.rating,
+                'fas fa-star-half': 2 < item.rating < 3,
+                'fas fa-star': item.rating >= 3
+              }"
+              class="rating-with-color"
+            ></i>
+            <i
+              [ngClass]="{
+                'far fa-star': 3 > item.rating,
+                'fas fa-star-half': 3 < item.rating < 4,
+                'fas fa-star': item.rating >= 4
+              }"
+              class="rating-with-color"
+            ></i>
+            <i
+              [ngClass]="{
+                'far fa-star': 4 > item.rating,
+                'fas fa-star-half': 4 < item.rating < 5,
+                'fas fa-star': item.rating >= 5
+              }"
+              class="rating-with-color"
+            ></i>
+            <span>{{ item.rating }} out of 5</span>
           </div>
         </div>
       </div>
     </div>
   </div>
+</div>
