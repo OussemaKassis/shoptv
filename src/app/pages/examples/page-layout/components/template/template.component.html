@@ -1,90 +1,98 @@
 <p>template works!</p>
 <div class="cc-container">
-    <div class="cc-form">
-      <h2>Generate your own video</h2>
-      <div class="cc-form-container">
-        <div class="wrapper">
-          <div class="cc-left">
-            <div class="cc-input-group">
-              <div class="input-title">Fill in the fields</div>
-             
-            </div>
-  
-            <div id="container-fields" class="cc-input-group-2">
-              <div  class="field-line">
-                <div class="field-name">
-                  <div class="title-field">Video name</div>
-                  <input class="small" type="text"/>
-                </div>
-                <div class="field-name">
-                  <div class="title-field">Template category</div>
-                  <select name="" id="" >
-                    <option value="instagram">Instagram</option>
-                    <option value="youtubeads">YouTube Ads</option>
-                    <option value="facebook">Facebook</option>
-                    <option value="tvads">TV Ads</option>
-                    <option value="tiktok">TikTok</option>
-                  </select>
-                </div>
-                <div class="field-name">
-                  <div class="title-field">Template ratio</div>
-                  <select name="" id="" >
-                    <option value="6:19">6:19</option>
-                    <option value="4:3">4:3</option>
-                    <option value="9:16">9:16</option>
-                  </select>
-                </div>
+  <div class="cc-form">
+    <h2>Generate your own video</h2>
+    <div class="cc-form-container">
+      <div class="wrapper">
+        <div class="cc-left">
+          <div class="cc-input-group">
+            <div class="input-title">Fill in the fields</div>
+          </div>
+
+          <div id="container-fields" class="cc-input-group-2">
+            <div class="field-line">
+              <div class="field-name">
+                <div class="title-field">Video name</div>
+                <input class="small" type="text" [(ngModel)]="videoName" />
               </div>
-            </div>
-  
-            <div id="container-fields" class="cc-input-group-2">
-              <div class="container-header">
-                <h4>template variables fields:</h4>
+              <div class="field-name">
+                <div class="title-field">Template category</div>
+                <select name="" id="">
+                  <option value="instagram">Instagram</option>
+                  <option value="youtubeads">YouTube Ads</option>
+                  <option value="facebook">Facebook</option>
+                  <option value="tvads">TV Ads</option>
+                  <option value="tiktok">TikTok</option>
+                </select>
               </div>
-  
-              <div *ngFor="let item of list" class="field-line">
-                <div class="field-name">
-                  <div class="title-field">name: {{item.name}}</div>
-                  <input *ngIf="item.type == 'text'" type="text" [(ngModel)]="item.name"/>
-                  <button *ngIf="item.type !== 'text'" class="upload-button"><input  type="file" id="file{{item.id}}"><label  for="file" class="upload-button-text">Choose file</label></button>
-                </div>
-                <div class="field-name">
-                  <div class="title-field">asset type</div>
-                  <select name="" disabled id="" [(ngModel)]="item.type">
-                    <option  value="text">{{item.type}}</option>
-                    <option  value="image">{{item.type}}</option>
-                    <option  value="video">{{item.type}}</option>
-                    <option  value="audio">{{item.type}}</option>
-                  </select>
-                </div>
+              <div class="field-name">
+                <div class="title-field">Template ratio</div>
+                <select name="" id="">
+                  <option value="6:19">6:19</option>
+                  <option value="4:3">4:3</option>
+                  <option value="9:16">9:16</option>
+                </select>
               </div>
-            </div>
-            <div class="submit-files">
-              <button>Generate video</button>
             </div>
           </div>
-          <div class="cc-right">
-            <div class="cc-input-group-2">
-              <div class="container-header">
-                <h4>Video preview</h4>
-              </div>
-              <div class="input-video-container">
-                <video width="400" [controls]="false" autoplay [muted]="true">
-                  <source src="mov_bbb.mp4" id="video_here" />
-                  Your browser does not support HTML5 video.
-                </video>
-  
+
+          <div id="container-fields" class="cc-input-group-2">
+            <div class="container-header">
+              <h4>template variables fields:</h4>
+            </div>
+
+            <div *ngFor="let item of list" class="field-line">
+              <div class="field-name">
+                <div class="title-field">name: {{ item.name }}</div>
                 <input
-                  type="file"
-                  name="file[]"
-                  class="file_multi_video"
-                  accept="video/*"
+                  *ngIf="item.type == 'text'"
+                  type="text"
+                  [(ngModel)]="item.value"
                 />
+                <input
+                  *ngIf="item.type !== 'text'"
+                  type="text"
+                  [(ngModel)]="item.value"
+                  class="small-url"
+                />
+                <span *ngIf="item.type !== 'text'"> OR </span>
+                <button *ngIf="item.type !== 'text'" class="upload-button">
+                  <input type="file" id="file{{ item.id }}" /><label
+                    for="file"
+                    class="upload-button-text"
+                    >Choose file</label
+                  >
+                </button>
               </div>
+              <div class="field-name">
+                <div class="title-field">asset type</div>
+                <select name="" disabled id="" [(ngModel)]="item.type">
+                  <option value="text">{{ item.type }}</option>
+                  <option value="image">{{ item.type }}</option>
+                  <option value="video">{{ item.type }}</option>
+                  <option value="audio">{{ item.type }}</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="submit-files">
+            <button (click)="submitVideo()">Generate video</button>
+          </div>
+        </div>
+        <div class="cc-right">
+          <div class="cc-input-group-2">
+            <div class="container-header">
+              <h4>Video preview</h4>
+            </div>
+            <div class="input-video-container">
+              <video width="400" [controls]="true" autoplay [muted]="true">
+                <source [src]="template.preview" id="video_here" />
+                Your browser does not support HTML5 video.
+              </video>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-  
+</div>

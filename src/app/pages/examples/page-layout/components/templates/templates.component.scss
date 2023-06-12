@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
 .cc-section {
   padding: 20px;
   > .section-title {
@@ -62,7 +62,16 @@
         display: none; /* Safari and Chrome */
       }
       .card-video {
+        height: 100%;
         > .m-cont {
+          height: 450px;
+          width: 250px;
+          overflow: hidden;
+          object-fit: cover;
+          justify-content: center;
+          display: flex;
+          border-radius: 20px;
+
           &:hover {
             > .informations {
               opacity: 1;
@@ -72,7 +81,8 @@
           cursor: pointer;
           position: relative;
           > video {
-            width: 250px;
+            height: 450px;
+            width: fit-content;
             border-radius: 20px;
             pointer-events: none;
           }
@@ -90,7 +100,7 @@
             padding: 20px;
             opacity: 0;
             transition: 0.5s all;
-            transform: translate3d(-20px, 39px, 0);
+            transform: translate3d(-20px, 0, 0);
             > span {
               color: white;
               font-weight: 700;
@@ -125,4 +135,8 @@
       }
     }
   }
+}
+
+.fa-star-half-alt::before {
+  content: "\f5c0";
 }
