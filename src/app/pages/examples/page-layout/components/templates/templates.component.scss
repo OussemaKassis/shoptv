@@ -88,25 +88,28 @@
           }
           > .informations {
             position: absolute;
-            top: 0;
+            top: 6px;
             width: 100%;
             height: calc(100% - 5px);
             border-radius: 20px;
-            background: linear-gradient(41deg, #193db375 63%, transparent 77%);
+            background: linear-gradient(1deg, #000000c7 37%, transparent 100%);
             display: flex;
-            justify-content: flex-end;
+            justify-content: center;
             flex-direction: column;
             align-items: center;
             padding: 20px;
             opacity: 0;
             transition: 0.5s all;
-            transform: translate3d(-20px, 0, 0);
+            transform: translate3d(0, 27px, 0);
             > span {
               color: white;
               font-weight: 700;
               text-align: center;
               width: 100%;
-              background-color: #01183e99;
+
+              &.name {
+                font-size: 30px;
+              }
             }
           }
         }
