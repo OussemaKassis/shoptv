@@ -8,6 +8,9 @@
     height: 80px;
     border-bottom: 1px solid rgb(209, 209, 209);
     padding: 10px 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     > .cc-brand {
       > a {
         color: black;

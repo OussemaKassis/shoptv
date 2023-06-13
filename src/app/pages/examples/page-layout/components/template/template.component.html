@@ -1,19 +1,19 @@
 <p>template works!</p>
-<div class="cc-container">
+<div class="cc-container" id="azerty">
   <div class="cc-form">
     <h2>Generate your own video</h2>
     <div class="cc-form-container">
       <div class="wrapper">
         <div class="cc-left">
           <div class="cc-input-group">
-            <div class="input-title">Fill in the fields</div>
+            <div class="input-title" id="azerty">Fill in the fields</div>
           </div>
 
           <div id="container-fields" class="cc-input-group-2">
             <div class="field-line">
               <div class="field-name">
                 <div class="title-field">Video name</div>
-                <input class="small" type="text" [(ngModel)]="videoName" />
+                <input class="small" id="videoname" (change)="changeName()" type="text" [(ngModel)]="videoName" />
               </div>
               <div class="field-name">
                 <div class="title-field">Template category</div>

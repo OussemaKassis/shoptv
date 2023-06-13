@@ -287,6 +287,10 @@ h2 {
                     width: 135px;
                   }
 
+                  &.required {
+                    border: 1px solid #ff7300;
+                  }
+
                   &.small-url {
                     width: 187px;
                   }
@@ -357,10 +361,10 @@ h2 {
         }
 
         > .cc-right {
-          width: 50%;
+          width: 100%;
           > .cc-input-group-2 {
             padding: 20px 10px;
-            margin: 20px 0;
+            margin: 51px 0 0;
             background-color: #4854611c;
             width: fit-content;
             border-radius: 10px;
@@ -377,9 +381,14 @@ h2 {
             }
 
             > .input-video-container {
-              width: 400px;
+              width: 800px;
               height: fit-content;
               position: relative;
+
+              > video {
+                width: 100%;
+                max-height: 800px;
+              }
 
               > input {
                 width: 400px;
