@@ -420,3 +420,54 @@ h2 {
     }
   }
 }
+.m-model {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #00000005;
+
+  &.hidden {
+    display: none;
+  }
+
+  > .m-container {
+    width: 40%;
+    height: 40%;
+    position: absolute;
+    left: 552px;
+    top: 20%;
+    user-select: none;
+    label {
+      width: unset;
+    }
+    p {
+      color: black;
+    }
+
+    .project-box {
+      background-color: white;
+      padding: 35px;
+      border-radius: 16px;
+
+      .box-progress-bar {
+        width: 100%;
+        height: 15px;
+        position: relative;
+        margin-bottom: 5px;
+
+        div {
+          width: 0%;
+          height: 15px;
+          background-color: #ff942e;
+        }
+      }
+
+      .project-box-footer {
+        display: flex;
+        flex-direction: row;
+      }
+    }
+  }
+}

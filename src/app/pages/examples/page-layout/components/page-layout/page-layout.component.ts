@@ -7,9 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PageLayoutComponent implements OnInit {
 
+  free : string = '5';
   constructor() { }
 
   ngOnInit(): void {
+    this.free = localStorage.getItem('tries');
   }
 
 }

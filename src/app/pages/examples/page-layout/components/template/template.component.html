@@ -75,9 +75,11 @@
                       left: 0;
                       opacity: 0;
                     "
-                  /><label for="file" class="upload-button-text"
-                    >{{item.valueUrl.length > 0 ? item.valueUrl.substring(12): "Upload file"}}</label
-                  >
+                  /><label for="file" class="upload-button-text">{{
+                    item.valueUrl.length > 0
+                      ? item.valueUrl.substring(12)
+                      : "Upload file"
+                  }}</label>
                 </button>
               </div>
               <div class="field-name">
@@ -92,7 +94,9 @@
             </div>
           </div>
           <div class="submit-files">
-            <button (click)="submitVideo()">Generate video</button>
+            <button type="button" (click)="submitVideo($event)">
+              Generate video
+            </button>
           </div>
         </div>
         <div class="cc-right">
@@ -107,6 +111,35 @@
               </video>
             </div>
           </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="m-model hidden">
+  <div class="m-container">
+    <div class="project-box-wrapper">
+      <div class="project-box">
+        <div class="project-box-header">
+          <span>Generating {{ videoName }}</span>
+        </div>
+        <div class="project-box-content-header">
+          <p class="box-content-subheader">{{ generationStep }}</p>
+        </div>
+        <div class="box-progress-wrapper">
+          <p class="box-progress-header" id="simpletext">Starting..</p>
+          <div class="box-progress-bar">
+            <div
+              class="box-progress"
+              id="progressBar"
+              style="width: 0%; background-color: #ff942e"
+            ></div>
+          </div>
+          <p class="box-progress-percentage" id="progressVal">0%</p>
+        </div>
+        <div class="project-box-footer">
+          <label id="minutes">00</label>:<label id="seconds">00</label>
         </div>
       </div>
     </div>

@@ -47,6 +47,10 @@ export class VideoComponent implements OnInit {
       }
     });
 
+    if(localStorage.getItem('videoUrl') !=="") {
+      this.video[0].preview = localStorage.getItem('videoUrl');
+    }
+
     console.log(this.video)
   }
 

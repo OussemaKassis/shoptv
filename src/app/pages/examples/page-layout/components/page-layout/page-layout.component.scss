@@ -23,6 +23,32 @@
       }
     }
     > .cc-items {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: row-reverse;
+      gap: 100px;
+      > li {
+        list-style: none;
+
+        > a {
+          color: black;
+          font-size: 21px;
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+
+        > .current-plan {
+          color: black;
+          font-size: 21px;
+
+          > span {
+            color: black;
+            font-size: 21px;
+          }
+        }
+      }
     }
   }
   > .main {

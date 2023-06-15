@@ -18,6 +18,7 @@ import { AddTemplateComponent } from "./pages/examples/page-layout/components/ad
 import { TemplateComponent } from "./pages/examples/page-layout/components/template/template.component";
 import { VideoListComponent } from "./pages/examples/page-layout/components/video-list/video-list.component";
 import { VideoComponent } from "./pages/examples/page-layout/components/video/video.component";
+import { PricingComponent } from "./pages/examples/pricing/pricing.component";
 
 const routes: Routes = [
   { path: "", redirectTo: "home", pathMatch: "full" },
@@ -27,6 +28,7 @@ const routes: Routes = [
   { path: "dashboard", component: PageLayoutComponent, children: [
     { path: "", component: DashboardComponent },
     { path: "templates", component: TemplatesComponent },
+    { path: "pricing", component: PricingComponent },
     { path: "videos", component: VideosComponent },
     { path: "videos/video-list/:cat", component: VideoListComponent },
     { path: "template/:id", component: TemplateComponent },

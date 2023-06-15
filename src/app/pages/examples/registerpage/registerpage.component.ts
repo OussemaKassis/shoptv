@@ -85,4 +85,8 @@ export class RegisterpageComponent implements OnInit, OnDestroy {
     var body = document.getElementsByTagName("body")[0];
     body.classList.remove("register-page");
   }
+
+  register() {
+    localStorage.setItem('tries', '5');
+  }
 }

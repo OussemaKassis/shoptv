@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { element } from 'protractor';
 import { TemplateService } from './service/template.service';
 import $ from 'jquery';
@@ -11,6 +11,8 @@ import $ from 'jquery';
 })
 export class TemplateComponent implements OnInit {
   videoName: string = "";
+  generationStep: string = "Rendering";
+  progressVal: number = 0;
 
   list: {
     id:number;
@@ -205,7 +207,7 @@ export class TemplateComponent implements OnInit {
     rating: number;
   }= {id:null,name:"",preview:"y",duration:"",category:"",rating:0};
   templateId: string = "";
-  constructor(private route: ActivatedRoute, private templateService: TemplateService) { }
+  constructor(private route: ActivatedRoute, private templateService: TemplateService, private router: Router) { }
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
@@ -220,7 +222,8 @@ export class TemplateComponent implements OnInit {
     });
   }
 
-  submitVideo() {
+  submitVideo(event) {
+    event.preventDefault();
     let imageAssets = "";
     let textAssets = "";
     let assets = "";
@@ -239,7 +242,7 @@ export class TemplateComponent implements OnInit {
         textAssets = textAssets + '{"type":"data","layerName":"'+element.name+'","property":"Source Text","value":"'+element.value+'"},';
       }
     })
-    
+
     if(imageAssets.length > 0) {
       imageAssets = imageAssets.slice(0, -1);
     }
@@ -265,42 +268,144 @@ export class TemplateComponent implements OnInit {
     }else {
       if(assets == "") {
         if(confirm('do you want to generate the video without changing any variable?') == true) {
-          this.templateService.generateVideo(requestBody).subscribe({
-            next: (event: any) => {
-              console.log('started...');
-              console.log('...');
-              console.log('...');
-            },
-            error: (err) => {
-              console.log('error');
-              console.log(err.error.text.substring(26));
-              localStorage.setItem('videoUrl', err.error.text.substring(26));
-            },
-            complete: () => {
-              console.log('completed')
-            },
-          });
+          $('.m-model').removeClass('hidden');
+          this.myFunction();
+          setTimeout(() => {
+            this.generationStep = "Setting up job..";
+          }, 1000);
+          setTimeout(() => {
+            this.generationStep = "Downloading assets..";
+          }, 3000);
+          setTimeout(() => {
+            this.generationStep = "Scanning assets..";
+          }, 15000);
+          setTimeout(() => {
+            this.generationStep = "applying postdownload actions..";
+          }, 23000);
+          setTimeout(() => {
+            this.generationStep = "applying prerender actions..";
+          }, 24000);
+          setTimeout(() => {
+            this.generationStep = "running script assemble..";
+          }, 25000);
+          setTimeout(() => {
+            $('#simpletext').html('Progress');
+            this.generationStep = "rendering job..";
+          }, 30000);
+          setTimeout(() => {
+            this.progress();
+            this.templateService.generateVideo(requestBody).subscribe({
+              next: (event: any) => {
+                $('.m-model').addClass('hidden');
+                alert(this.progressVal);
+              },
+              error: (err) => {
+                $('.m-model').addClass('hidden');
+                alert(this.progressVal);
+                console.log('error');
+                console.log(err.error.text.substring(26));
+                localStorage.setItem('videoUrl', err.error.text.substring(26));
+                localStorage.setItem('tries',(parseInt(localStorage.getItem('tries')) - 1).toString());
+                this.router.navigate(['./dashboard/video/0']);
+              },
+              complete: () => {
+              },
+            });
+          }, 30000); 
         }
       }
       else {
-        this.templateService.generateVideo(requestBody).subscribe({
-          next: (event: any) => {
-            $('#myvideo').attr('src', event);
-          },
-          error: (err) => {
-            console.log('error');
-            console.log(err.error.text.substring(26));
-            localStorage.setItem('videoUrl', err.error.text.substring(26));
-          },
-          complete: () => {
-            console.log('completed')
-          },
-        });
+        $('.m-model').removeClass('hidden');
+        this.myFunction();
+        setTimeout(() => {
+          this.generationStep = "Setting up job..";
+        }, 1000);
+        setTimeout(() => {
+          this.generationStep = "Downloading assets..";
+        }, 3000);
+        setTimeout(() => {
+          this.generationStep = "Scanning assets..";
+        }, 15000);
+        setTimeout(() => {
+          this.generationStep = "applying postdownload actions..";
+        }, 23000);
+        setTimeout(() => {
+          this.generationStep = "applying prerender actions..";
+        }, 24000);
+        setTimeout(() => {
+          this.generationStep = "running script assemble..";
+        }, 25000);
+        setTimeout(() => {
+          $('#simpletext').html('Progress');
+          this.generationStep = "rendering job..";
+        }, 30000);
+        setTimeout(() => {
+          this.progress();
+          this.templateService.generateVideo(requestBody).subscribe({
+            next: (event: any) => {
+              $('.m-model').addClass('hidden');
+              alert(this.progressVal);
+            },
+            error: (err) => {
+              $('.m-model').addClass('hidden');
+              alert(this.progressVal);
+              console.log('error');
+              console.log(err.error.text.substring(26));
+              localStorage.setItem('videoUrl', err.error.text.substring(26));
+              localStorage.setItem('videoName', this.videoName);
+              localStorage.setItem('videoCategory', this.videoName);
+              localStorage.setItem('tries',(parseInt(localStorage.getItem('tries')) - 1).toString());
+              this.router.navigate(['./dashboard/video/95']);
+            },
+            complete: () => {
+            },
+          });
+        }, 30000);
+        
       }
     }
   }
 
   changeName() {
     $('#videoname').removeClass('required');
+  }
+
+  myFunction() {
+    let that = this;
+    var totalSeconds = 0;
+    setInterval(function (that) {
+      var minutesLabel = document.getElementById("minutes");
+      var secondsLabel = document.getElementById("seconds");
+      totalSeconds = ++totalSeconds;
+      secondsLabel.innerHTML = that.pad(totalSeconds % 60);
+      minutesLabel.innerHTML = totalSeconds >= 60  ?  that.pad(Math.trunc(totalSeconds / 60)) : '00';
+    }, 1000, that, totalSeconds);
+  }
+
+  pad(val: any) {
+    var valString = val + "";
+    if (valString.length < 2) {
+      return "0" + valString;
+    } else {
+      return valString;
+    }
+  }
+
+  progress() {
+    var that = this;
+    setInterval(function () {
+      var progressBar = document.getElementById("progressBar");
+      var progressValue = document.getElementById("progressVal");
+      that.progressVal = that.progressVal + Math.random() * (5.9 - 4.2) + 4.2;
+      if(that.progressVal<= 100) {
+        $(progressBar).css('width', that.progressVal+'%');
+        $(progressValue).html(that.progressVal.toFixed(2)+'%');
+      } else {
+        that.generationStep = "Cleaning Up.."
+        $(progressBar).css('width', '100%');
+        $(progressBar).css('background-color', 'green');
+        $(progressValue).html('100%');
+      }
+    }, 5000, that,  that.progressVal);
   }
 }

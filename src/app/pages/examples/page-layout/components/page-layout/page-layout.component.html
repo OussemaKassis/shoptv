@@ -1,13 +1,15 @@
 <div class="cc-container">
   <div class="nav-bar">
     <div class="cc-brand">
-      <a class="navbar-brand" placement="bottom" [routerLink]="['/home']">
+      <a class="navbar-brand" placement="bottom" [routerLink]="['/dashboard']">
         <img src="/assets/img/logoblack.png" alt="logo" /><span>
         </span>
       </a>
     </div>
     <div class="cc-items">
       <li><a href="#about"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+      <li><div class="current-plan">Free tries: <span>{{free}}</span></div></li>
+      <li><div class="current-plan"><a routerLink="../dashboard/pricing">Change your Plan!</a></div></li>
     </div>
   </div>
   <div class="main">
