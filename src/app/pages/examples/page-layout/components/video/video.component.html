@@ -4,9 +4,12 @@
       <div class="cc-form-container">
         <div class="wrapper">
           <h2>{{video[0].name}}</h2>
-          <video [controls]="true" autoplay loop [muted]="false" >
-            <source  [src]="video[0].preview" type="video/mp4" />
-          </video>
+          <div class="vid">
+            <video [controls]="true" autoplay loop [muted]="false" >
+              <source  [src]="video[0].preview" type="video/mp4" />
+            </video>
+          </div>
+          
           <div class="infos">
             <span>
                 title: {{video[0].name}}
