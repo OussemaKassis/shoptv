@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import $ from 'jquery';
 
 @Component({
   selector: 'app-videos',
@@ -54,6 +55,9 @@ export class VideosComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    $('.item2').addClass('active');
+    $('.item1').removeClass('active');
+
     this.videos.forEach((element: any, index: number) => {
       if(element.category === "tiktok") {
         this.tiktokvideos.push(element);

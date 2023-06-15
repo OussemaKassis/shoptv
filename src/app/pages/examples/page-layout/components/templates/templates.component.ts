@@ -188,6 +188,9 @@ export class TemplatesComponent implements OnInit {
   constructor(private router: Router) { }
 
   ngOnInit(): void {
+    $('.item1').addClass('active');
+    $('.item2').removeClass('active');
+
     setTimeout(() => {
       let fas = $('.rating-with-color');
       fas.each( function(){

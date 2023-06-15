@@ -101,11 +101,15 @@
           > ul {
             > li {
               color: black;
-              padding: 18px 0 0;
+              padding: 10px 0 9px;
               font-size: 20px;
               font-weight: 600;
               list-style: none;
               cursor: pointer;
+
+              &.active {
+                background: linear-gradient(268deg, #d9d9d9c7 6%, transparent 100%);
+              }
             }
           }
         }
