@@ -4,11 +4,12 @@ import { AuthComponent } from './auth.component';
 import { LoginComponent } from './components/login/login.component';
 import { ForgetPasswordComponent } from './components/forget-password/forget-password.component';
 import { RouterModule } from '@angular/router';
+import { CompanyLoginComponent } from './components/company-login/company-login.component';
 
 
 
 @NgModule({
-  declarations: [AuthComponent, LoginComponent, ForgetPasswordComponent],
+  declarations: [AuthComponent, LoginComponent, ForgetPasswordComponent, CompanyLoginComponent],
   imports: [
     CommonModule,
     RouterModule
