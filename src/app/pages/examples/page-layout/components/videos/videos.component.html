@@ -4,17 +4,30 @@
   <div class="test">
     <div class="section-title" [routerLink]="['./video-list/tiktok']">TikTok videos</div>
     <form action="" class="search-bar">
-      <input type="search" name="search" pattern=".*\S.*" required />
+      <input type="search" name="search" pattern=".*\S.*" required (keypress)="tiktokChange($event)" />
       <button class="search-btn" type="submit">
         <span>Search</span>
       </button>
     </form>
   </div>
   <div class="section-items-videos">
-    <div *ngFor="let item of tiktokvideos" [routerLink]="['../video/'+item.id]" class="content-card">
+    <div *ngFor="let item of tiktokvideos" [routerLink]="['../video/'+item.id]" class="content-card tiktokcard">
       <video [controls]="false" autoplay loop [muted]="true" >
         <source  [src]="item.preview" type="video/mp4" />
       </video>
+    </div>
+    <div class="loadingtiktok hidden">
+      <div class="row-card row-card--1">
+        <div class="card skeleton-banner">
+          
+        </div>
+        <div class="card skeleton-banner">
+          
+        </div>
+        <div class="card skeleton-banner">
+          
+        </div>
+        </div>
     </div>
   </div>
 </div>
@@ -23,17 +36,30 @@
   <div class="test">
     <div class="section-title" [routerLink]="['./video-list/instagram']">Instagram Videos</div>
     <form action="" class="search-bar">
-      <input type="search" name="search" pattern=".*\S.*" required />
+      <input type="search" name="search" pattern=".*\S.*" required  (keypress)="instaChange($event)" />
       <button class="search-btn" type="submit">
         <span>Search</span>
       </button>
     </form>
   </div>
   <div class="section-items-videos">
-    <div *ngFor="let item of facebookvideos" [routerLink]="['../video/'+item.id]" class="content-card">
+    <div *ngFor="let item of instagramvideos" [routerLink]="['../video/'+item.id]" class="content-card instacard">
       <video [controls]="false" autoplay loop [muted]="true" >
         <source  [src]="item.preview" type="video/mp4" />
       </video>
+    </div>
+    <div class="loadinginsta hidden">
+      <div class="row-card row-card--1">
+        <div class="card skeleton-banner">
+          
+        </div>
+        <div class="card skeleton-banner">
+          
+        </div>
+        <div class="card skeleton-banner">
+          
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -42,17 +68,30 @@
   <div class="test">
     <div class="section-title" [routerLink]="['./video-list/facebook']">Facebook Videos</div>
     <form action="" class="search-bar">
-      <input type="search" name="search" pattern=".*\S.*" required />
+      <input type="search" name="search" pattern=".*\S.*" required (keypress)="faceChange($event)" />
       <button class="search-btn" type="submit">
         <span>Search</span>
       </button>
     </form>
   </div>
   <div class="section-items-videos">
-    <div *ngFor="let item of youtubevideos" [routerLink]="['../video/'+item.id]" class="content-card">
+    <div *ngFor="let item of facebookvideos" [routerLink]="['../video/'+item.id]" class="content-card facecard">
       <video [controls]="false" autoplay loop [muted]="true" >
         <source  [src]="item.preview" type="video/mp4" />
       </video>
+    </div>
+    <div class="loadingface hidden">
+      <div class="row-card row-card--1">
+        <div class="card skeleton-banner">
+          
+        </div>
+        <div class="card skeleton-banner">
+          
+        </div>
+        <div class="card skeleton-banner">
+          
+        </div>
+      </div>
     </div>
   </div>
 </div>

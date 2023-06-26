@@ -21,9 +21,9 @@ export class VideosComponent implements OnInit {
     {id:3,name:"facebook vid",duration:"00:00:10",preview:"/assets/video/video4_m.mp4",category:"facebook"},
     {id:4,name:"fb vid",duration:"00:00:10",preview:"/assets/video/video5_m.mp4",category:"facebook"},
     {id:5,name:"test fb",duration:"00:00:10",preview:"/assets/video/video6_m.mp4",category:"facebook"},
-    {id:6,name:"youtube ads",duration:"00:00:10",preview:"/assets/video/video7_m.mp4",category:"youtube"},
-    {id:7,name:"YouTube",duration:"00:00:10",preview:"/assets/video/video8_m.mp4",category:"youtube"},
-    {id:8,name:"yt testing",duration:"00:00:10",preview:"/assets/video/video9_m.mp4",category:"youtube"}
+    {id:6,name:"youtube ads",duration:"00:00:10",preview:"/assets/video/video7_m.mp4",category:"instagram"},
+    {id:7,name:"YouTube",duration:"00:00:10",preview:"/assets/video/video8_m.mp4",category:"instagram"},
+    {id:8,name:"yt testing",duration:"00:00:10",preview:"/assets/video/video9_m.mp4",category:"instagram"}
   ];
 
 
@@ -44,7 +44,7 @@ export class VideosComponent implements OnInit {
     category: string;
   }[] = [];
 
-  youtubevideos: {
+  instagramvideos: {
     id:number;
     name: string;
     preview: string;
@@ -65,12 +65,42 @@ export class VideosComponent implements OnInit {
       if(element.category === "facebook") {
         this.facebookvideos.push(element);
       }
-      if(element.category === "youtube") {
-        this.youtubevideos.push(element);
+      if(element.category === "instagram") {
+        this.instagramvideos.push(element);
       }
     });
-
-    console.log(this.tiktokvideos)
   }
 
+  tiktokChange(event:any) {
+    $('.tiktokcard').addClass('hidden');
+    $('.loadingtiktok').removeClass('hidden');
+    this.tiktokvideos = this.videos.filter((obj) => obj.category == "tiktok");
+    this.tiktokvideos = this.tiktokvideos.filter((obj) => obj.name.includes(event.target.value));
+    setTimeout(() => {
+      $('.tiktokcard').removeClass('hidden');
+      $('.loadingtiktok').addClass('hidden');
+    }, 1500);
+  }
+
+  instaChange(event:any) {
+    $('.instacard').addClass('hidden');
+    $('.loadinginsta').removeClass('hidden');
+    this.instagramvideos = this.videos.filter((obj) => obj.category == "instagram");
+    this.instagramvideos = this.instagramvideos.filter((obj) => obj.name.includes(event.target.value));
+    setTimeout(() => {
+      $('.instacard').removeClass('hidden');
+      $('.loadinginsta').addClass('hidden');
+    }, 1500);
+  }
+
+  faceChange(event:any) {
+    $('.facecard').addClass('hidden');
+    $('.loadingface').removeClass('hidden');
+    this.facebookvideos = this.videos.filter((obj) => obj.category == "facebook");
+    this.facebookvideos = this.facebookvideos.filter((obj) => obj.name.includes(event.target.value));
+    setTimeout(() => {
+      $('.facecard').removeClass('hidden');
+      $('.loadingface').addClass('hidden');
+    }, 1500);
+  }
 }

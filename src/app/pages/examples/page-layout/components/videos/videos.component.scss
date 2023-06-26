@@ -23,6 +23,9 @@
     flex-direction: row;
     column-gap: 20px;
     > .content-card {
+      &.hidden {
+        display: none;
+      }
       width: 19%;
       height: 150px;
       background-color: rgb(223, 223, 223);
@@ -246,5 +249,66 @@ body {
   }
   .search-btn {
     background: #f1f1f1;
+  }
+}
+
+.row-card {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 8px;
+  margin: 32px 0;
+}
+.row-card--1 {
+  color: #333;
+}
+.row-card--2 {
+  color: transparent;
+}
+.card {
+  width: 522px;
+  height: 250px;
+  background-color: #131313;
+  border-radius: 8px;
+  font-family: Arial, Helvetica, sans-serif;
+  /*   vertical-align: middle; */
+  text-align: center;
+  line-height: 232px;
+}
+.card--bg {
+  background: linear-gradient(to right, #f1f1f1 30%, #e5e5e5 40%, #f1f1f1 50%);
+  background-size: 200% 100%;
+  animation: skeletonKeyframes 1s linear infinite;
+}
+
+.skeleton-banner {
+  background: linear-gradient(to right, #f1f1f1 30%, #e5e5e5 40%, #f1f1f1 50%);
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  animation-name: skeletonKeyframes;
+  animation-timing-function: linear;
+  background-size: 1000px 640px;
+  position: relative;
+}
+
+/* voor demo purposes. Refer to Kermit storybook for actual code: https://kermit-sb.tcloud-prd1.prod.aws.kpn.org/?path=/story/components-skeleton--as-banner */
+@keyframes skeletonKeyframes {
+  0% {
+    background-position: 0% 0%;
+  }
+  /* 	50% {
+		background-position: -100% 0%;
+	}  */
+  100% {
+    background-position: -200% 0%;
+  }
+}
+
+.loadingtiktok, .loadingface, .loadinginsta {
+  display: flex;
+
+  &.hidden {
+    display: none;
   }
 }
