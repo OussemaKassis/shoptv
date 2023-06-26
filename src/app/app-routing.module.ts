@@ -20,17 +20,18 @@ import { VideoListComponent } from "./pages/examples/page-layout/components/vide
 import { VideoComponent } from "./pages/examples/page-layout/components/video/video.component";
 import { PricingComponent } from "./pages/examples/pricing/pricing.component";
 import { CompanyLoginComponent } from "./pages/examples/auth/components/company-login/company-login.component";
+import { ProfileComponent } from "./pages/examples/page-layout/components/profile/profile.component";
 
 const routes: Routes = [
   { path: "", redirectTo: "home", pathMatch: "full" },
   { path: "home", component: IndexComponent },
   { path: "denns/login", component: CompanyLoginComponent },
   { path: "profile", component: ProfilepageComponent },
-  { path: "register", component: RegisterpageComponent },
   { path: "dashboard", component: PageLayoutComponent, children: [
     { path: "", component: DashboardComponent },
     { path: "templates", component: TemplatesComponent },
     { path: "pricing", component: PricingComponent },
+    { path: "profile", component: ProfileComponent },
     { path: "videos", component: VideosComponent },
     { path: "videos/video-list/:cat", component: VideoListComponent },
     { path: "template/:id", component: TemplateComponent },

@@ -32,3 +32,23 @@
       }
     }
   }
+
+  option {
+    color: black;
+  }
+
+  .cc-brand {
+    > a {
+      color: black;
+      font-weight: 700;
+      > img {
+        width: 141px;
+        height: 57px;
+        object-fit: cover;
+  
+        &.denns {
+          width: 264px;
+        }
+      }
+    }
+  }

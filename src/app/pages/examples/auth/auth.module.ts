@@ -5,6 +5,7 @@ import { LoginComponent } from './components/login/login.component';
 import { ForgetPasswordComponent } from './components/forget-password/forget-password.component';
 import { RouterModule } from '@angular/router';
 import { CompanyLoginComponent } from './components/company-login/company-login.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -12,6 +13,7 @@ import { CompanyLoginComponent } from './components/company-login/company-login.
   declarations: [AuthComponent, LoginComponent, ForgetPasswordComponent, CompanyLoginComponent],
   imports: [
     CommonModule,
+    FormsModule,
     RouterModule
   ]
 })

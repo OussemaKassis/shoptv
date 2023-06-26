@@ -69,8 +69,8 @@
   <div class="section-items-templates">
     <div class="videos">
       <div class="card-video" *ngFor="let item of templates1">
-        <div class="m-cont" (click)="selectTemplate(item.id)">
-          <video [controls]="false" autoplay loop [muted]="true">
+        <div class="m-cont horizontal" (click)="selectTemplate(item.id)">
+          <video [controls]="false" class="horizontal" autoplay loop [muted]="true">
             <source [src]="item.preview" type="video/mp4" />
           </video>
           <div class="informations">

@@ -5,16 +5,11 @@
 >
   <div class="container">
     <div class="navbar-translate">
-      <a
-        class="navbar-brand"
-        placement="bottom"
-        [routerLink]="['/home']"
-        tooltip="The tool for you"
-      >
-        <img src="../../../assets/img/apple-icon.png" alt="" /><span>
-          SHOP TV•
-        </span>
-      </a>
+      <div class="cc-brand">
+        <a class="navbar-brand" placement="bottom" [routerLink]="['/home']">
+          <img id="logo" src="/assets/img/logonew.png" alt="logo" /><span> </span>
+        </a>
+      </div>
       <button
         aria-controls="navigation-index"
         aria-label="Toggle navigation"
@@ -140,7 +135,7 @@
                 <h4 class="card-title">Login</h4>
               </div>
               <div class="card-body">
-                <form class="form">
+                <form class="form" autocomplete="off">
                   <div
                     class="input-group"
                     [ngClass]="{ 'input-group-focus': focus1 === true }"
@@ -153,6 +148,8 @@
                     <input
                       class="form-control"
                       placeholder="Email"
+                      [(ngModel)]="username"
+                      name="fdfs"
                       type="text"
                       (focus)="focus1 = true"
                       (blur)="focus1 = false"
@@ -170,7 +167,9 @@
                     <input
                       class="form-control"
                       placeholder="Password"
-                      type="text"
+                      [(ngModel)]="password"
+                      name="dfgsdfg"
+                      type="password"
                       (focus)="focus2 = true"
                       (blur)="focus2 = false"
                     />
@@ -181,7 +180,15 @@
 
                       <span class="form-check-sign"> </span> Stay connected.
                     </label>
+                    
                   </div>
+                  <span class="register"> If you don't have an account, <a
+                    class=""
+                    routerLink="../register"
+                  >
+                    register now
+                  </a></span>
+                  
                 </form>
               </div>
               <div class="card-footer">
@@ -192,6 +199,7 @@
                 >
                   LOGIN
                 </a>
+
               </div>
             </div>
           </div>

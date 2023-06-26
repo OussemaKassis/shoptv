@@ -4,6 +4,10 @@
     color: black;
     font-size: 19px;
     margin-bottom: 20px;
+
+    .denns & {
+      color: green;
+    }
   }
   > .section-items {
     display: flex;
@@ -17,8 +21,34 @@
       position: relative;
       cursor: pointer;
       transition: 0.5s transform;
+      display: flex;
       &:hover {
         transform: scale(1.05);
+      }
+
+      &.story {
+        background-color: #e9e9e9;
+      }
+      
+      &.ytb {
+        background: linear-gradient(
+          178deg,
+          rgba(226, 29, 45, 1) 0%,
+          rgb(196 21 36) 100%
+        );
+      }
+
+      > .insta {
+        margin: auto;
+        height: 100%;
+        border-radius: 9px;
+      }
+
+      > video {
+        width: 100%;
+        object-fit: cover;
+        height: 100%;
+        border-radius: 10px;
       }
 
       > .plus {
@@ -128,6 +158,97 @@
   left: 0;
   top: 0;
   > .container {
-    
+  }
+}
+
+.card-video {
+  height: 100%;
+  > .m-cont {
+    height: 450px;
+    width: 250px;
+    overflow: hidden;
+    object-fit: cover;
+    justify-content: center;
+    display: flex;
+    border-radius: 20px;
+
+    &.new {
+      position: relative;
+      &::before {
+        content: "new!";
+        position: absolute;
+        background-color: red;
+        color: white;
+        height: 24px;
+        width: 121px;
+        text-align: center;
+        transform: rotate(314deg);
+        left: -34px;
+        top: 17px;
+      }
+    }
+
+    &:hover {
+      > .informations {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+      }
+    }
+    cursor: pointer;
+    position: relative;
+    > video {
+      height: 450px;
+      width: fit-content;
+      border-radius: 20px;
+      pointer-events: none;
+    }
+    > .informations {
+      position: absolute;
+      top: 6px;
+      width: 100%;
+      height: calc(100% - 5px);
+      border-radius: 20px;
+      background: linear-gradient(1deg, #000000c7 37%, transparent 100%);
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+      opacity: 0;
+      transition: 0.5s all;
+      transform: translate3d(0, 27px, 0);
+      > span {
+        color: white;
+        font-weight: 700;
+        text-align: center;
+        width: 100%;
+
+        &.name {
+          font-size: 30px;
+        }
+      }
+    }
+  }
+
+  > .rating-section {
+    border-top: 1px solid #eee;
+    padding: 20px 12px;
+    margin-top: 5px;
+    display: table;
+    content: "";
+    clear: both;
+    width: 100%;
+  }
+
+  .rating-with-color {
+    color: #ffa500;
+  }
+
+  .stars-rating {
+    float: left;
+  }
+
+  .stars-rating > span {
+    font-size: small;
   }
 }

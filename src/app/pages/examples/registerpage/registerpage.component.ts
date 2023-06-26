@@ -1,3 +1,4 @@
+import { HttpClient } from "@angular/common/http";
 import { Component, OnInit, OnDestroy, HostListener } from "@angular/core";
 
 @Component({
@@ -10,7 +11,10 @@ export class RegisterpageComponent implements OnInit, OnDestroy {
   focus;
   focus1;
   focus2;
-  constructor() {}
+  focus3;
+  focus4;
+  focus5;
+  constructor(private httpClient: HttpClient) {}
   @HostListener("document:mousemove", ["$event"])
   onMouseMove(e) {
     var squares1 = document.getElementById("square1");
@@ -87,6 +91,9 @@ export class RegisterpageComponent implements OnInit, OnDestroy {
   }
 
   register() {
+    alert();
+    this.httpClient.post('http://127.0.0.1:8000/api/' + 'verify-mail', "{}");
     localStorage.setItem('tries', '5');
+
   }
 }

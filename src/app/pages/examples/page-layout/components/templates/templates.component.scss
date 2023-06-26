@@ -72,6 +72,11 @@
           display: flex;
           border-radius: 20px;
 
+          &.horizontal {
+            height: 250px;
+            width: 450px;
+          }
+
           &:hover {
             > .informations {
               opacity: 1;
@@ -85,6 +90,10 @@
             width: fit-content;
             border-radius: 20px;
             pointer-events: none;
+
+            &.horizontal {
+              height: 851px;
+            }
           }
           > .informations {
             position: absolute;

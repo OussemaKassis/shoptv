@@ -12,6 +12,9 @@ export class LoginComponent implements OnInit, OnDestroy {
   focus;
   focus1;
   focus2;
+
+  username: string = "";
+  password: string = "";
   constructor(private loginService: LoginService, private router: Router) {}
   @HostListener("document:mousemove", ["$event"])
   onMouseMove(e) {
@@ -29,39 +32,39 @@ export class LoginComponent implements OnInit, OnDestroy {
 
     squares1.style.transform =
       "perspective(500px) rotateY(" +
-      posX * 0.05 +
+      posX * 0.1 +
       "deg) rotateX(" +
-      posY * -0.05 +
+      posY * -0.1 +
       "deg)";
     squares2.style.transform =
       "perspective(500px) rotateY(" +
-      posX * 0.05 +
+      posX * 0.1 +
       "deg) rotateX(" +
-      posY * -0.05 +
+      posY * -0.1 +
       "deg)";
     squares3.style.transform =
       "perspective(500px) rotateY(" +
-      posX * 0.05 +
+      posX * 0.1 +
       "deg) rotateX(" +
-      posY * -0.05 +
+      posY * -0.1 +
       "deg)";
     squares4.style.transform =
       "perspective(500px) rotateY(" +
-      posX * 0.05 +
+      posX * 0.1 +
       "deg) rotateX(" +
-      posY * -0.05 +
+      posY * -0.1 +
       "deg)";
     squares5.style.transform =
       "perspective(500px) rotateY(" +
-      posX * 0.05 +
+      posX * 0.1 +
       "deg) rotateX(" +
-      posY * -0.05 +
+      posY * -0.1 +
       "deg)";
     squares6.style.transform =
       "perspective(500px) rotateY(" +
-      posX * 0.05 +
+      posX * 0.1 +
       "deg) rotateX(" +
-      posY * -0.05 +
+      posY * -0.1 +
       "deg)";
     squares7.style.transform =
       "perspective(500px) rotateY(" +
@@ -88,14 +91,21 @@ export class LoginComponent implements OnInit, OnDestroy {
     body.classList.remove("register-page");
   }
   login() {
-    let data = '{"password": "admin","rememberMe": false,"username": "admin"}'
+    let data = '{"password": "'+this.password+'","rememberMe": false,"username": "'+this.username+'"}'
+
+    // let data = new FormData();
+    // data.append('username', this.username);
+    // data.append('password', this.password);
+    // data.append('rememberMe', 'false');
+
     this.loginService.loginAuth(data).subscribe({
       next: (event: any) => {
         localStorage.setItem('token', event.id_token);
+        localStorage.setItem('company', 'false');
         this.router.navigate(['./dashboard/']);
       },
       error: (err) => {
-        console.log(err);
+        console.log(err.error.detail);
       },
       complete: () => {
 

@@ -2,21 +2,49 @@
   <div class="nav-bar">
     <div class="cc-brand">
       <a class="navbar-brand" placement="bottom" [routerLink]="['/dashboard']">
-        <img src="/assets/img/logoblack.png" alt="logo" /><span>
-        </span>
+        <img id="logo" src="/assets/img/logoblack.png" alt="logo" /><span> </span>
       </a>
     </div>
     <div class="cc-items">
-      <li><a routerLink="../home"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
-      <li><div class="current-plan">Free tries: <span>{{free}}</span></div></li>
-      <li><div class=""><a routerLink="../dashboard/pricing" style="font-size: 15px;padding: 5px;border: 1px solid #d5d5d5;border-radius: 5px;box-shadow: 0 0 2px 1px #d9d9d954;">Change your Plan!</a></div></li>
+      <li>
+        <div class="alfd" (click)="toggleMenu()">
+          <img class="pdof" src="/assets/img/profile.png" alt="" /> <span class="mb-0 text-sm  font-weight-bold">Ahmed Louati</span>
+          <div class="mrtf hidden">
+            <ul>
+              <li routerLink="../dashboard/profile">profile</li>
+              <li class="grayed-out">settings</li>
+              <li (click)="logOut()">logout</li>
+            </ul>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="current-plan">
+          Free tries: <span>{{ free }}</span>
+        </div>
+      </li>
+      <li>
+        <div class="">
+          <a
+            routerLink="../dashboard/pricing"
+            style="
+              font-size: 15px;
+              padding: 5px;
+              border: 1px solid #d5d5d5;
+              border-radius: 5px;
+              box-shadow: 0 0 2px 1px #d9d9d954;
+            "
+            >Change your Plan!</a
+          >
+        </div>
+      </li>
     </div>
   </div>
   <div class="main">
     <div class="side-bar">
       <div class="side-bar-title-container">
         <div class="menu-title" routerLink="../dashboard">
-          <img src="/assets/img/house.png" alt="home" />
+          <img class="denns-img" src="/assets/img/house.png" alt="home" />
           <h4>Welcome home</h4>
         </div>
       </div>
@@ -24,11 +52,21 @@
         <span class="title"> Workspace </span>
         <div class="menu-items">
           <h5>
-            <img src="/assets/img/cloud.png" alt="cloud" /> My space <span> [14.8 MB/0.5 GB] </span>
+            <img src="/assets/img/cloud.png" alt="cloud" /> My space
+            <span> [14.8 MB/0.5 GB] </span>
           </h5>
           <ul>
             <li class="item1" routerLink="./templates">My Templates</li>
             <li class="item2" routerLink="./videos">My Videos</li>
+          </ul>
+        </div>
+        <div class="menu-items company-admin">
+          <h5>
+            <img src="/assets/img/company.png" alt="cloud" /> Team
+          </h5>
+          <ul>
+            <li class="item3" routerLink="./templates">New Employee</li>
+            <li class="item4" routerLink="./videos">Employees List</li>
           </ul>
         </div>
       </div>
@@ -38,8 +76,6 @@
     </div>
   </div>
   <div class="cc-modal">
-    <div class="my-modal-panel">
-
-    </div>
+    <div class="my-modal-panel"></div>
   </div>
 </div>

@@ -17,4 +17,13 @@ export class LoginService {
       const requestOptions = { headers: headers };
       return this.httpClient.post('/api/' + 'authenticate', data , requestOptions );
     }
+
+    companyLogin(data: any) {
+      const headers = new HttpHeaders({
+        'Content-Type': 'application/json',
+      });
+
+      const requestOptions = { headers: headers };
+      return this.httpClient.post('/api/' + 'authenticate', data , requestOptions );
+    }
 }

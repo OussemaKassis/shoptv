@@ -3,7 +3,7 @@
         <div class="wrap-login100">
             <form class="login100-form validate-form">
                 <span class="login100-form-logo">
-                    <i class="zmdi zmdi-landscape"></i>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Denns_BioMarkt_Logo.png" alt="">
                 </span>
 
                 <span class="login100-form-title p-b-34 p-t-27">
@@ -11,14 +11,14 @@
                 </span>
 
                 <div class="wrap-input100 validate-input" data-validate = "Enter username">
-                    <input class="input100" type="text" placeholder="Username" autocomplete="off" style="background: transparent;
+                    <input class="input100" type="text" name="usern" [(ngModel)]="username"  placeholder="Username" autocomplete="off" style="background: transparent;
                     z-index: 99;
                     position: relative;">
                     <span class="focus-input100" data-placeholder="&#xf207;"></span>
                 </div>
 
                 <div class="wrap-input100 validate-input" data-validate="Enter password">
-                    <input class="input100" type="password" autocomplete="off" placeholder="Password" style="background: transparent;
+                    <input class="input100" name="pass" type="password" [(ngModel)]="password" autocomplete="off" placeholder="Password" style="background: transparent;
                     z-index: 99;
                     position: relative;">
                     <span class="focus-input100" data-placeholder="&#xf191;"></span>
@@ -32,7 +32,7 @@
                 </div>
 
                 <div class="container-login100-form-btn">
-                    <button class="login100-form-btn">
+                    <button (click)="companyLogin()" class="login100-form-btn">
                         Login
                     </button>
                 </div>
