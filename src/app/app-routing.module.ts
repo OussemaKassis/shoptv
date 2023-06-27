@@ -21,6 +21,7 @@ import { VideoComponent } from "./pages/examples/page-layout/components/video/vi
 import { PricingComponent } from "./pages/examples/pricing/pricing.component";
 import { CompanyLoginComponent } from "./pages/examples/auth/components/company-login/company-login.component";
 import { ProfileComponent } from "./pages/examples/page-layout/components/profile/profile.component";
+import { CreditCardFormComponent } from "./pages/examples/page-layout/components/credit-card-form/credit-card-form.component";
 
 const routes: Routes = [
   { path: "", redirectTo: "home", pathMatch: "full" },
@@ -31,6 +32,7 @@ const routes: Routes = [
     { path: "", component: DashboardComponent },
     { path: "templates", component: TemplatesComponent },
     { path: "pricing", component: PricingComponent },
+    { path: "bank-transfer", component: CreditCardFormComponent },
     { path: "profile", component: ProfileComponent },
     { path: "videos", component: VideosComponent },
     { path: "videos/video-list/:cat", component: VideoListComponent },

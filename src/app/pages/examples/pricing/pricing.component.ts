@@ -12,4 +12,9 @@ export class PricingComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  setPrice(price: string,name : string) {
+    localStorage.setItem('price',price);
+    localStorage.setItem('planName',name);
+    
+  }
 }

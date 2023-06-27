@@ -12,11 +12,12 @@ import { TemplateComponent } from './components/template/template.component';
 import { VideoComponent } from './components/video/video.component';
 import { VideoListComponent } from './components/video-list/video-list.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { CreditCardFormComponent } from './components/credit-card-form/credit-card-form.component';
 
 
 
 @NgModule({
-  declarations: [PageLayoutComponent, DashboardComponent, TemplatesComponent, VideosComponent, AddTemplateComponent, GenerateComponent, TemplateComponent, VideoComponent, VideoListComponent, ProfileComponent],
+  declarations: [PageLayoutComponent, DashboardComponent, TemplatesComponent, VideosComponent, AddTemplateComponent, GenerateComponent, TemplateComponent, VideoComponent, VideoListComponent, ProfileComponent, CreditCardFormComponent],
   imports: [
     CommonModule,
     RouterModule,
