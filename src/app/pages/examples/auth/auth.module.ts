@@ -6,15 +6,18 @@ import { ForgetPasswordComponent } from './components/forget-password/forget-pas
 import { RouterModule } from '@angular/router';
 import { CompanyLoginComponent } from './components/company-login/company-login.component';
 import { FormsModule } from '@angular/forms';
+import { AlertModule } from 'ngx-bootstrap/alert';
+import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 
 
 
 @NgModule({
-  declarations: [AuthComponent, LoginComponent, ForgetPasswordComponent, CompanyLoginComponent],
+  declarations: [AuthComponent, LoginComponent, ForgetPasswordComponent, CompanyLoginComponent, ResetPasswordComponent],
   imports: [
     CommonModule,
     FormsModule,
-    RouterModule
+    RouterModule,
+    AlertModule
   ]
 })
 export class AuthModule { }
