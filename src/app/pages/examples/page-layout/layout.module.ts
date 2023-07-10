@@ -13,14 +13,18 @@ import { VideoComponent } from './components/video/video.component';
 import { VideoListComponent } from './components/video-list/video-list.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { CreditCardFormComponent } from './components/credit-card-form/credit-card-form.component';
+import { EmployersListComponent } from './components/employers-list/employers-list.component';
+import { AddEmployerComponent } from './components/add-employer/add-employer.component';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 
 
 @NgModule({
-  declarations: [PageLayoutComponent, DashboardComponent, TemplatesComponent, VideosComponent, AddTemplateComponent, GenerateComponent, TemplateComponent, VideoComponent, VideoListComponent, ProfileComponent, CreditCardFormComponent],
+  declarations: [PageLayoutComponent, DashboardComponent, TemplatesComponent, VideosComponent, AddTemplateComponent, GenerateComponent, TemplateComponent, VideoComponent, VideoListComponent, ProfileComponent, CreditCardFormComponent, EmployersListComponent, AddEmployerComponent],
   imports: [
     CommonModule,
     RouterModule,
+    ModalModule,
     FormsModule,
   ]
 })

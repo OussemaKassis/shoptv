@@ -1,0 +1,231 @@
+<div class="wrapper">
+    <div class="title-stuff">
+        <h2 style="color: black;margin: 26px 26px 18px;">Employees List</h2>
+    </div>
+    <div class="datatable">
+        <table class="styled-table">
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>Account Status</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let user of users" [id]="'row'+user.id" >
+                    <td>{{user.id}} 
+                    </td>
+                    <td class="width"> <div class="text">
+                        {{user.firstName}}
+                    </div> 
+                        <div class="form-group hidden">
+                            <input type="text" [value]="user.firstName" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="first name">
+                        </div>
+
+                    </td>
+                    <td class="width"><div class="text">{{user.lastName}}</div>
+
+                        <div class="form-group hidden">
+                            <input type="text" [value]="user.lastName" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="last name">
+                        </div>
+                    </td>
+                    <td class="width">
+                        <div class="text"> {{user.email}}</div>
+
+                        <div class="form-group hidden">
+                            <input type="email" [value]="user.email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="email">
+                        </div>
+                    </td>
+                    <td>{{user.status}} <span [ngClass]="{'active':user.status =='active', 'pause': user.status =='inactive'}" class="status"></span></td>
+                    <td class="buttons">
+                        <i icons data-target="#myModal" (click)="myModal.show(); showModal(user.id);" class="btn1 tim-icons icon-button-pause"></i>
+                        <i icons (click)="test(user.id, $event)" class="btn2 tim-icons icon-pencil"></i>
+                        <i icons (click)="done(user.id, $event)" class="btn3 hidden tim-icons icon-check-2"></i>
+                    </td>
+                </tr>
+                <!-- and so on... -->
+            </tbody>
+        </table>
+        <div class="row"><div class="col-sm-12 col-md-5"><div class="dataTables_info" id="dtBasicExample_info" role="status" aria-live="polite">Showing 1 to {{numberr}} of {{numberr}} entries</div></div><div class="col-sm-12 col-md-7"><div class="dataTables_paginate paging_simple_numbers" id="dtBasicExample_paginate"><ul class="pagination"><li class="paginate_button page-item previous disabled" id="dtBasicExample_previous"><a href="#" aria-controls="dtBasicExample" data-dt-idx="0" tabindex="0" class="page-link">Previous</a></li><li class="paginate_button page-item active"><a href="#" aria-controls="dtBasicExample" data-dt-idx="1" tabindex="0" class="page-link">1</a></li><li class="paginate_button page-item "><a aria-controls="dtBasicExample" data-dt-idx="7" tabindex="0" class="page-link next disabled">Next</a></li></ul></div></div></div>
+    </div>
+</div>
+
+  <div
+    aria-hidden="true"
+    aria-labelledby="myModalLabel"
+    bsModal
+    class="modal fade"
+    #myModal="bs-modal"
+    id="myModal"
+    role="dialog"
+    tabindex="-1"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header justify-content-center">
+          <button
+            aria-hidden="true"
+            class="close"
+            data-dismiss="modal"
+            type="button"
+            (click)="myModal.hide()"
+          >
+            <i class="tim-icons icon-simple-remove"> </i>
+          </button>
+          <h4 class="title title-up">Update account</h4>
+        </div>
+        <div class="modal-body">
+          <p>
+            Do you really want to change this account current status?
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-default" type="button" (click)="myModal.hide() ; changeStatus();">Yes, I do</button>
+          <button class="btn btn-danger" data-dismiss="modal" type="button" (click)="myModal.hide()">
+            Cancel
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- <div
+    aria-hidden="true"
+    aria-labelledby="myModalLabel"
+    bsModal
+    class="modal fade modal-mini modal-primary modal-mini"
+    #myModal1="bs-modal"
+    id="myModal1"
+    role="dialog"
+    tabindex="-1"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header justify-content-center">
+          <button
+            aria-hidden="true"
+            class="close"
+            data-dismiss="modal"
+            (click)="myModal1.hide()"
+            type="button"
+          >
+            <i class="tim-icons icon-simple-remove text-white"> </i>
+          </button>
+          <div class="modal-profile">
+            <i class="tim-icons icon-single-02"> </i>
+          </div>
+        </div>
+        <div class="modal-body">
+          <p>Always have an access to your profile</p>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-link btn-neutral" type="button">
+            Back
+          </button>
+          <button
+            class="btn btn-link btn-neutral"
+            data-dismiss="modal"
+            type="button"
+            (click)="myModal1.hide()"
+          >
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    aria-hidden="true"
+    aria-labelledby="myModalLabel"
+    bsModal
+    class="modal fade modal-black"
+    #myModal2="bs-modal"
+    id="myModal2"
+    role="dialog"
+    tabindex="-1"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header justify-content-center">
+          <button
+            aria-hidden="true"
+            class="close"
+            data-dismiss="modal"
+            (click)="myModal2.hide()"
+            type="button"
+          >
+            <i class="tim-icons icon-simple-remove text-white"> </i>
+          </button>
+          <div class="text-muted text-center ml-auto mr-auto">
+            <h3 class="mb-0">Sign in with</h3>
+          </div>
+        </div>
+        <div class="modal-body">
+          <div class="btn-wrapper text-center">
+            <a class="btn btn-neutral btn-icon mr-1" href="javascript:void(0)">
+              <img src="assets/img/github.svg" />
+            </a>
+            <a class="btn btn-neutral btn-icon" href="javascript:void(0)">
+              <img src="assets/img/google.svg" />
+            </a>
+          </div>
+          <div class="text-center text-muted mb-4 mt-3">
+            <small> Or sign in with credentials </small>
+          </div>
+          <form role="form">
+            <div class="form-group mb-3">
+              <div class="input-group input-group-alternative" [ngClass]="{'input-group-focus':focus1===true}">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
+                    <i class="tim-icons icon-email-85"> </i>
+                  </span>
+                </div>
+                <input
+                  class="form-control"
+                  placeholder="Email"
+                  type="email"
+                  (focus)="focus1=true" (blur)="focus1=false"
+                />
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="input-group input-group-alternative" [ngClass]="{'input-group-focus':focus2===true}">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
+                    <i class="tim-icons icon-key-25"> </i>
+                  </span>
+                </div>
+                <input
+                  class="form-control"
+                  placeholder="Password"
+                  type="password"
+                  (focus)="focus2=true" (blur)="focus2=false"
+                />
+              </div>
+            </div>
+            <div class="form-check mt-3">
+              <label class="form-check-label">
+                <input
+                  checked="checked"
+                  class="form-check-input"
+                  type="checkbox"
+                />
+
+                <span class="form-check-sign"> </span> Remember me!
+              </label>
+            </div>
+            <div class="text-center">
+              <button class="btn btn-primary my-4" type="button">
+                Sign in
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div> -->

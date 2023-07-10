@@ -7,16 +7,19 @@ import $ from 'jquery';
   templateUrl: './page-layout.component.html',
   styleUrls: ['./page-layout.component.scss']
 })
+
 export class PageLayoutComponent implements OnInit {
 
   free : string = '5';
   constructor(private router: Router) { }
 
   ngOnInit(): void {
+
     if(localStorage.getItem('company') == 'true'){
       $('.cc-container').addClass('denns');
       $('#logo').addClass('denns');
       $('#logo').attr('src','/assets/img/denns.png');
+      $('.m-no-company').hide();
     }
 
     if(localStorage.getItem('role') !== 'companyadmin') {
@@ -32,8 +35,6 @@ export class PageLayoutComponent implements OnInit {
   logOut() {
     localStorage.removeItem("token");
     this.router.navigate(['./auth/login']);
-
-
   }
 
   toggleMenu() {

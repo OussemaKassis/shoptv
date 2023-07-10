@@ -6,6 +6,7 @@ import { ForgetPasswordComponent } from './components/forget-password/forget-pas
 import { RouterModule } from '@angular/router';
 import { CompanyLoginComponent } from './components/company-login/company-login.component';
 import { FormsModule } from '@angular/forms';
+import { AlertModule } from 'ngx-bootstrap/alert';
 
 
 
@@ -14,7 +15,8 @@ import { FormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     FormsModule,
-    RouterModule
+    RouterModule,
+    AlertModule
   ]
 })
 export class AuthModule { }

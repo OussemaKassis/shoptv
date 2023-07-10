@@ -98,19 +98,23 @@ export class LoginComponent implements OnInit, OnDestroy {
     // data.append('password', this.password);
     // data.append('rememberMe', 'false');
 
-    this.loginService.loginAuth(data).subscribe({
-      next: (event: any) => {
-        localStorage.setItem('token', event.id_token);
+    // this.loginService.loginAuth(data).subscribe({
+    //   next: (event: any) => {
+    //     localStorage.setItem('token', event.id_token);
+    //     localStorage.setItem('company', 'false');
+    //     this.router.navigate(['./dashboard/']);
+    //   },
+    //   error: (err) => {
+    //     console.log(err.error.detail);
+    //   },
+    //   complete: () => {
+
+    //   },
+    // })
+
+    localStorage.setItem('token', 'event.id_token');
         localStorage.setItem('company', 'false');
         this.router.navigate(['./dashboard/']);
-      },
-      error: (err) => {
-        console.log(err.error.detail);
-      },
-      complete: () => {
-
-      },
-    })
   }
 
 }

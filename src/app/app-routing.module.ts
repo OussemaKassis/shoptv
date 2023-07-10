@@ -22,6 +22,8 @@ import { PricingComponent } from "./pages/examples/pricing/pricing.component";
 import { CompanyLoginComponent } from "./pages/examples/auth/components/company-login/company-login.component";
 import { ProfileComponent } from "./pages/examples/page-layout/components/profile/profile.component";
 import { CreditCardFormComponent } from "./pages/examples/page-layout/components/credit-card-form/credit-card-form.component";
+import { AddEmployerComponent } from "./pages/examples/page-layout/components/add-employer/add-employer.component";
+import { EmployersListComponent } from "./pages/examples/page-layout/components/employers-list/employers-list.component";
 
 const routes: Routes = [
   { path: "", redirectTo: "home", pathMatch: "full" },
@@ -34,6 +36,8 @@ const routes: Routes = [
     { path: "pricing", component: PricingComponent },
     { path: "bank-transfer", component: CreditCardFormComponent },
     { path: "profile", component: ProfileComponent },
+    { path: "employees", component: EmployersListComponent },
+    { path: "create-employee", component: AddEmployerComponent },
     { path: "videos", component: VideosComponent },
     { path: "videos/video-list/:cat", component: VideoListComponent },
     { path: "template/:id", component: TemplateComponent },

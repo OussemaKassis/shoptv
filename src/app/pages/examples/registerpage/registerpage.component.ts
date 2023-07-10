@@ -91,7 +91,6 @@ export class RegisterpageComponent implements OnInit, OnDestroy {
   }
 
   register() {
-    alert();
     this.httpClient.post('http://127.0.0.1:8000/api/' + 'verify-mail', "{}");
     localStorage.setItem('tries', '5');
 
