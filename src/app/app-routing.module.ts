@@ -24,6 +24,7 @@ import { ProfileComponent } from "./pages/examples/page-layout/components/profil
 import { CreditCardFormComponent } from "./pages/examples/page-layout/components/credit-card-form/credit-card-form.component";
 import { AddEmployerComponent } from "./pages/examples/page-layout/components/add-employer/add-employer.component";
 import { EmployersListComponent } from "./pages/examples/page-layout/components/employers-list/employers-list.component";
+import { ResetPasswordComponent } from "./pages/examples/auth/components/reset-password/reset-password.component";
 
 const routes: Routes = [
   { path: "", redirectTo: "home", pathMatch: "full" },
@@ -48,7 +49,8 @@ const routes: Routes = [
     { path: "", redirectTo: "login", pathMatch: "full" },
     { path: "login", component: LoginComponent },
     { path: "register", component: RegisterpageComponent },
-    { path: "forget-password", component: ForgetPasswordComponent },
+    { path: "reset-password", component: ForgetPasswordComponent },
+    { path: "verify-account", component: ResetPasswordComponent },
   ] },
   { path: "landing", component: LandingpageComponent }
 ];

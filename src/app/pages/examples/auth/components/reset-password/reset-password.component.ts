@@ -1,13 +1,14 @@
 import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginService } from '../login/service/login.service';
+import $ from 'Jquery';
 
 @Component({
-  selector: 'app-forget-password',
-  templateUrl: './forget-password.component.html',
-  styleUrls: ['./forget-password.component.scss']
+  selector: 'app-reset-password',
+  templateUrl: './reset-password.component.html',
+  styleUrls: ['./reset-password.component.scss']
 })
-export class ForgetPasswordComponent implements OnInit, OnDestroy {
+export class ResetPasswordComponent implements OnInit, OnDestroy {
   isCollapsed = true;
   focus;
   focus1;
@@ -90,27 +91,14 @@ export class ForgetPasswordComponent implements OnInit, OnDestroy {
     var body = document.getElementsByTagName("body")[0];
     body.classList.remove("register-page");
   }
-  login() {
-    let data = '{"password": "'+this.password+'","rememberMe": false,"username": "'+this.username+'"}'
+  submit() {
+    $('.loading').attr("disabled","disabled");
+    $('.loading').removeClass('hidden');
 
-    // let data = new FormData();
-    // data.append('username', this.username);
-    // data.append('password', this.password);
-    // data.append('rememberMe', 'false');
-
-    this.loginService.loginAuth(data).subscribe({
-      next: (event: any) => {
-        localStorage.setItem('token', event.id_token);
-        localStorage.setItem('company', 'false');
-        this.router.navigate(['./dashboard/']);
-      },
-      error: (err) => {
-        console.log(err.error.detail);
-      },
-      complete: () => {
-
-      },
-    })
+    setTimeout(() => {
+      $('.formReset').addClass('hidden')
+      $('.successModal').removeClass('hidden')
+    }, 2500);
   }
 
 }
