@@ -25,6 +25,7 @@ import { CreditCardFormComponent } from "./pages/examples/page-layout/components
 import { AddEmployerComponent } from "./pages/examples/page-layout/components/add-employer/add-employer.component";
 import { EmployersListComponent } from "./pages/examples/page-layout/components/employers-list/employers-list.component";
 import { ResetPasswordComponent } from "./pages/examples/auth/components/reset-password/reset-password.component";
+import { InstagramTemplatesComponent } from "./pages/examples/page-layout/components/instagram-templates/instagram-templates.component";
 
 const routes: Routes = [
   { path: "", redirectTo: "home", pathMatch: "full" },
@@ -42,6 +43,7 @@ const routes: Routes = [
     { path: "videos", component: VideosComponent },
     { path: "videos/video-list/:cat", component: VideoListComponent },
     { path: "template/:id", component: TemplateComponent },
+    { path: "instagram-templates", component: InstagramTemplatesComponent },
     { path: "video/:id", component: VideoComponent },
     { path: "add-template", component: AddTemplateComponent },
   ] },
