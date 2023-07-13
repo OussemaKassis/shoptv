@@ -17,11 +17,12 @@ import { EmployersListComponent } from './components/employers-list/employers-li
 import { AddEmployerComponent } from './components/add-employer/add-employer.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { AlertModule } from 'ngx-bootstrap/alert';
+import { InstagramTemplatesComponent } from './components/instagram-templates/instagram-templates.component';
 
 
 
 @NgModule({
-  declarations: [PageLayoutComponent, DashboardComponent, TemplatesComponent, VideosComponent, AddTemplateComponent, GenerateComponent, TemplateComponent, VideoComponent, VideoListComponent, ProfileComponent, CreditCardFormComponent, EmployersListComponent, AddEmployerComponent],
+  declarations: [PageLayoutComponent, DashboardComponent, TemplatesComponent, VideosComponent, AddTemplateComponent, GenerateComponent, TemplateComponent, VideoComponent, VideoListComponent, ProfileComponent, CreditCardFormComponent, EmployersListComponent, AddEmployerComponent, InstagramTemplatesComponent],
   imports: [
     CommonModule,
     RouterModule,
