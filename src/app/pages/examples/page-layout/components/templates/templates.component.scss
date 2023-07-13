@@ -63,6 +63,9 @@
       }
       .card-video {
         height: 100%;
+        &.hidden {
+          display: none;
+        }
         > .m-cont {
           height: 450px;
           width: 250px;
@@ -71,6 +74,26 @@
           justify-content: center;
           display: flex;
           border-radius: 20px;
+
+          &.new {
+            position: relative;
+            &::before {
+              content: "new!";
+              position: absolute;
+              background-color: red;
+              color: white;
+              height: 24px;
+              width: 121px;
+              text-align: center;
+              transform: rotate(314deg);
+              left: -34px;
+              top: 17px;
+            }
+          }
+
+          &.hidden {
+            display: none;
+          }
 
           &.horizontal {
             height: 250px;

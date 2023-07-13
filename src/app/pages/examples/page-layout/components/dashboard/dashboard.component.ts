@@ -211,7 +211,7 @@ export class DashboardComponent implements OnInit {
     $('.item2').removeClass('active');
     this.templates2 = [];
 
-    if(localStorage.getItem('TemplateAdded')=='true') {
+    if(localStorage.getItem('templateAdded')=='true') {
       this.templates2 = this.templates1;
     }else {
       this.templates1.forEach((element: any, index: number )=> {

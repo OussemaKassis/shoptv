@@ -1,4 +1,10 @@
 <div class="cc-container">
+  <div class="blocking hidden"></div>
+  <alert class="alert11 hidden" [type]="'success'" [dismissible]="true">
+    Your template has been added successfully. Start creating your very own
+    videos right now.
+  </alert>
+
   <div class="cc-form">
     <h2>Add your own After Effects template here</h2>
     <div class="cc-form-container">
@@ -6,9 +12,9 @@
         <div class="cc-left">
           <div class="cc-input-group">
             <div class="input-title">Select the template file to upload:</div>
-            <div class="upload-wrapper" style="width: 630px;">
-              <div class="upload drop-area" style="width: 630px;">
-                <div class="upload-info" style="width: 457px;">
+            <div class="upload-wrapper" style="width: 630px">
+              <div class="upload drop-area" style="width: 630px">
+                <div class="upload-info" style="width: 457px">
                   <svg
                     t="1581822650945"
                     class="clip"
@@ -24,7 +30,9 @@
                       p-id="3251"
                     ></path>
                   </svg>
-                  <span id="file-name" class="upload-filename inactive drop-text"
+                  <span
+                    id="file-name"
+                    class="upload-filename inactive drop-text"
                     >No file selected</span
                   >
                 </div>
@@ -41,18 +49,18 @@
           </div>
 
           <div id="container-fields" class="cc-input-group-2">
-            <div  class="field-line">
+            <div class="field-line">
               <div class="field-name">
                 <div class="title-field">Template name</div>
-                <input class="small" type="text"/>
+                <input class="small" type="text" />
               </div>
               <div class="field-name">
                 <div class="title-field">Template duration</div>
-                <input class="small" type="text"/>
+                <input class="small" type="text" />
               </div>
               <div class="field-name">
                 <div class="title-field">Template category</div>
-                <select name="" id="" >
+                <select name="" id="">
                   <option value="instagram">Instagram</option>
                   <option value="youtubeads">YouTube Ads</option>
                   <option value="facebook">Facebook</option>
@@ -62,7 +70,7 @@
               </div>
               <div class="field-name">
                 <div class="title-field">Template ratio</div>
-                <select name="" id="" >
+                <select name="" id="">
                   <option value="6:19">6:19</option>
                   <option value="4:3">4:3</option>
                   <option value="9:16">9:16</option>
@@ -80,11 +88,11 @@
             <div *ngFor="let item of list" class="field-line">
               <div class="field-name">
                 <div class="title-field">asset name</div>
-                <input type="text" [(ngModel)]="item.name"/>
+                <input type="text" [(ngModel)]="item.name" />
               </div>
               <div class="field-name">
                 <div class="title-field">asset layout name</div>
-                <input type="text" [(ngModel)]="item.name"/>
+                <input type="text" [(ngModel)]="item.name" />
               </div>
               <div class="field-name">
                 <div class="title-field">asset type</div>
@@ -101,7 +109,10 @@
             </div>
           </div>
           <div class="submit-files">
-            <button>Upload template</button>
+            <button (click)="uploadFile()">
+              <i icons class="loading hidden tim-icons icon-refresh-01"></i>
+              Upload template
+            </button>
           </div>
         </div>
         <div class="cc-right">

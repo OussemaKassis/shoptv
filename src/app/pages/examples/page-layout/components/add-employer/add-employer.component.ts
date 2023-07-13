@@ -12,4 +12,8 @@ export class AddEmployerComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  add() {
+    localStorage.setItem('addedUser', 'true');
+  }
+
 }

@@ -10,10 +10,15 @@ import $ from 'jquery';
 
 export class PageLayoutComponent implements OnInit {
 
+  firstName : string = "";
+  lastName : string = "";
   free : string = '5';
   constructor(private router: Router) { }
 
   ngOnInit(): void {
+
+    this.firstName = localStorage.getItem('firstName');
+    this.lastName = localStorage.getItem('lastName');
 
     if(localStorage.getItem('company') == 'true'){
       $('.cc-container').addClass('denns');
@@ -21,7 +26,7 @@ export class PageLayoutComponent implements OnInit {
       $('#logo').attr('src','/assets/img/denns.png');
       $('.m-no-company').hide();
     }
-    
+
     if(localStorage.getItem('firstLogin') == 'true'){
       $('.alert1').removeClass('hidden');
     }

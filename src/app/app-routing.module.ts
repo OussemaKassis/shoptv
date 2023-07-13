@@ -26,6 +26,7 @@ import { AddEmployerComponent } from "./pages/examples/page-layout/components/ad
 import { EmployersListComponent } from "./pages/examples/page-layout/components/employers-list/employers-list.component";
 import { ResetPasswordComponent } from "./pages/examples/auth/components/reset-password/reset-password.component";
 import { InstagramTemplatesComponent } from "./pages/examples/page-layout/components/instagram-templates/instagram-templates.component";
+import { YoutubeTemplatesComponent } from "./pages/examples/page-layout/components/youtube-templates/youtube-templates.component";
 
 const routes: Routes = [
   { path: "", redirectTo: "home", pathMatch: "full" },
@@ -44,6 +45,7 @@ const routes: Routes = [
     { path: "videos/video-list/:cat", component: VideoListComponent },
     { path: "template/:id", component: TemplateComponent },
     { path: "instagram-templates", component: InstagramTemplatesComponent },
+    { path: "youtube-templates", component: YoutubeTemplatesComponent },
     { path: "video/:id", component: VideoComponent },
     { path: "add-template", component: AddTemplateComponent },
   ] },

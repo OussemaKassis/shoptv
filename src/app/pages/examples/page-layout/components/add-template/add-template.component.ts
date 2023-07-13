@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import $ from 'jquery';
 
 @Component({
@@ -13,7 +14,7 @@ export class AddTemplateComponent implements OnInit {
     layoutName: string;
     type: string;
   }[] = [{id:0,name:"",layoutName:"",type:""}];
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
     $(document).on("change", ".file_multi_video", function(evt) {
@@ -58,4 +59,23 @@ export class AddTemplateComponent implements OnInit {
     $("#file-name").html(element.target.files[0].name)
   }
 
+  uploadFile() {
+    $('.loading').attr("disabled","disabled");
+    $('.loading').removeClass('hidden');
+    $('.blocking').removeClass('hidden');
+
+    setTimeout(() => {
+      $('.loading').addClass('hidden');
+      $('.alert11').removeClass('hidden');
+      $('.blocking').addClass('hidden');
+      localStorage.setItem('templateAdded', 'true');
+      this.success();
+    }, 15500);
+  }
+
+  success() {
+    setTimeout(() => {
+      this.router.navigate(['./dashboard/templates']);
+    }, 3500);
+  }
 }

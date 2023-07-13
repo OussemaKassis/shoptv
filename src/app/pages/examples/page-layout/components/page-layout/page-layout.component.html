@@ -1,8 +1,4 @@
 <div class="cc-container">
-  <alert class=" alert1" [type]="'info'" [dismissible]="true">
-    Welcome to ShopTV! :)
-  </alert>
-
   <div class="nav-bar">
     <div class="cc-brand">
       <a class="navbar-brand" placement="bottom" [routerLink]="['/dashboard']">
@@ -14,7 +10,7 @@
       <li>
         <div class="alfd" (click)="toggleMenu()">
           <img class="pdof" src="/assets/img/profile.png" alt="" />
-          <span class="mb-0 text-sm font-weight-bold">Oussema Kassis</span>
+          <span class="mb-0 text-sm font-weight-bold">{{firstName}} {{lastName}}</span>
           <div class="mrtf hidden">
             <ul>
               <li routerLink="../dashboard/profile">profile</li>

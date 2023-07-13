@@ -3,8 +3,8 @@
   <div class="section-title">9:16 Templates</div>
   <div class="section-items-templates">
     <div class="videos">
-      <div class="card-video" *ngFor="let item of templates1">
-        <div class="m-cont" (click)="selectTemplate(item.id)">
+      <div class="card-video" *ngFor="let item of templates1" [ngClass]="{'hidden': item.id == 0}">
+        <div [ngClass]="{'hidden': item.id == 0}" class="m-cont" (click)="selectTemplate(item.id)">
           <video [controls]="false" autoplay loop [muted]="true">
             <source [src]="item.preview" type="video/mp4" />
           </video>
@@ -69,7 +69,7 @@
   <div class="section-items-templates">
     <div class="videos">
       <div class="card-video" *ngFor="let item of templates1">
-        <div class="m-cont horizontal" (click)="selectTemplate(item.id)">
+        <div [ngClass]="{'new': item.id == 0}" class="m-cont" (click)="selectTemplate(item.id)">
           <video [controls]="false" class="horizontal" autoplay loop [muted]="true">
             <source [src]="item.preview" type="video/mp4" />
           </video>
@@ -128,13 +128,12 @@
     </div>
   </div>
 </div>
-
 <div class="cc-section">
   <div class="section-title">Latest Templates</div>
   <div class="section-items-templates">
     <div class="videos">
       <div class="card-video" *ngFor="let item of templates1">
-        <div class="m-cont" (click)="selectTemplate(item.id)">
+        <div [ngClass]="{'new': item.id == 0}" class="m-cont" (click)="selectTemplate(item.id)">
           <video [controls]="false" autoplay loop [muted]="true">
             <source [src]="item.preview" type="video/mp4" />
           </video>
