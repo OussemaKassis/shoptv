@@ -228,3 +228,15 @@
     }
   }
 }
+
+
+.alert1 {
+  position: absolute;
+  right: 100px;
+  top: 76px;
+  z-index: 99;
+
+  &.hidden {
+    display: none;
+  }
+}

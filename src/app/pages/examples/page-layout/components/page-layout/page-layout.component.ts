@@ -21,6 +21,10 @@ export class PageLayoutComponent implements OnInit {
       $('#logo').attr('src','/assets/img/denns.png');
       $('.m-no-company').hide();
     }
+    
+    if(localStorage.getItem('firstLogin') == 'true'){
+      $('.alert1').removeClass('hidden');
+    }
 
     if(localStorage.getItem('role') !== 'companyadmin') {
       $('.company-admin').addClass('hidden');

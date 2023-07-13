@@ -48,6 +48,8 @@ const routes: Routes = [
   { path: "auth", component: AuthComponent, children: [
     { path: "", redirectTo: "login", pathMatch: "full" },
     { path: "login", component: LoginComponent },
+    { path: "login/:new", component: LoginComponent },
+    { path: "login/:new/:verified", component: LoginComponent },
     { path: "register", component: RegisterpageComponent },
     { path: "reset-password", component: ForgetPasswordComponent },
     { path: "verify-account", component: ResetPasswordComponent },

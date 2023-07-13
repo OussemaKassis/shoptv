@@ -1,5 +1,7 @@
 import { HttpClient } from "@angular/common/http";
 import { Component, OnInit, OnDestroy, HostListener } from "@angular/core";
+import { Router } from "@angular/router";
+import $ from 'Jquery';
 
 @Component({
   selector: "app-registerpage",
@@ -14,7 +16,8 @@ export class RegisterpageComponent implements OnInit, OnDestroy {
   focus3;
   focus4;
   focus5;
-  constructor(private httpClient: HttpClient) {}
+  focus6;
+  constructor(private httpClient: HttpClient, private router: Router) {}
   @HostListener("document:mousemove", ["$event"])
   onMouseMove(e) {
     var squares1 = document.getElementById("square1");
@@ -85,14 +88,21 @@ export class RegisterpageComponent implements OnInit, OnDestroy {
 
     this.onMouseMove(event);
   }
+
   ngOnDestroy() {
     var body = document.getElementsByTagName("body")[0];
     body.classList.remove("register-page");
   }
 
   register() {
-    this.httpClient.post('http://127.0.0.1:8000/api/' + 'verify-mail', "{}");
-    localStorage.setItem('tries', '5');
+    $('.loading').attr("disabled","disabled");
+    $('.loading').removeClass('hidden');
 
+    setTimeout(() => {
+      $('.formReset').addClass('hidden');
+      $('.successModal').removeClass('hidden');
+      localStorage.setItem('tries', '5');
+      this.router.navigate(['./auth/login/true']);  
+    }, 2500);
   }
 }

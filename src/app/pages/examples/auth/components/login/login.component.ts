@@ -1,6 +1,7 @@
 import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
 import { LoginService } from './service/login.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import $ from 'Jquery';
 
 @Component({
   selector: 'app-login',
@@ -12,84 +13,42 @@ export class LoginComponent implements OnInit, OnDestroy {
   focus;
   focus1;
   focus2;
-
   username: string = "";
   password: string = "";
-  constructor(private loginService: LoginService, private router: Router) {}
-  @HostListener("document:mousemove", ["$event"])
-  onMouseMove(e) {
-    var squares1 = document.getElementById("square1");
-    var squares2 = document.getElementById("square2");
-    var squares3 = document.getElementById("square3");
-    var squares4 = document.getElementById("square4");
-    var squares5 = document.getElementById("square5");
-    var squares6 = document.getElementById("square6");
-    var squares7 = document.getElementById("square7");
-    var squares8 = document.getElementById("square8");
 
-    var posX = e.clientX - window.innerWidth / 2;
-    var posY = e.clientY - window.innerWidth / 6;
 
-    squares1.style.transform =
-      "perspective(500px) rotateY(" +
-      posX * 0.1 +
-      "deg) rotateX(" +
-      posY * -0.1 +
-      "deg)";
-    squares2.style.transform =
-      "perspective(500px) rotateY(" +
-      posX * 0.1 +
-      "deg) rotateX(" +
-      posY * -0.1 +
-      "deg)";
-    squares3.style.transform =
-      "perspective(500px) rotateY(" +
-      posX * 0.1 +
-      "deg) rotateX(" +
-      posY * -0.1 +
-      "deg)";
-    squares4.style.transform =
-      "perspective(500px) rotateY(" +
-      posX * 0.1 +
-      "deg) rotateX(" +
-      posY * -0.1 +
-      "deg)";
-    squares5.style.transform =
-      "perspective(500px) rotateY(" +
-      posX * 0.1 +
-      "deg) rotateX(" +
-      posY * -0.1 +
-      "deg)";
-    squares6.style.transform =
-      "perspective(500px) rotateY(" +
-      posX * 0.1 +
-      "deg) rotateX(" +
-      posY * -0.1 +
-      "deg)";
-    squares7.style.transform =
-      "perspective(500px) rotateY(" +
-      posX * 0.02 +
-      "deg) rotateX(" +
-      posY * -0.02 +
-      "deg)";
-    squares8.style.transform =
-      "perspective(500px) rotateY(" +
-      posX * 0.02 +
-      "deg) rotateX(" +
-      posY * -0.02 +
-      "deg)";
-  }
+  verified: boolean = false;
+  changed: boolean = false;
+
+  constructor(private route: ActivatedRoute, private loginService: LoginService, private router: Router) {}  
 
   ngOnInit() {
+    this.route.params.subscribe(params => {
+
+      if(params['new'] == 'true') {
+        $('.alert1').removeClass('hidden');
+      }
+
+      if(params['verified'] == 'changed') {
+        this.verified = true;
+        this.changed = true;
+      }
+
+      if(params['verified'] == 'true') {
+        this.verified = true;
+        this.changed = false;
+      }
+    });
+
     var body = document.getElementsByTagName("body")[0];
     body.classList.add("register-page");
-
-    this.onMouseMove(event);
   }
+
   ngOnDestroy() {
     var body = document.getElementsByTagName("body")[0];
     body.classList.remove("register-page");
   }
+
   login() {
     let data = '{"password": "'+this.password+'","rememberMe": false,"username": "'+this.username+'"}'
 
@@ -112,9 +71,54 @@ export class LoginComponent implements OnInit, OnDestroy {
     //   },
     // })
 
-    localStorage.setItem('token', 'event.id_token');
-        localStorage.setItem('company', 'false');
-        this.router.navigate(['./dashboard/']);
+    if(this.verified == true) {
+      if($('.oldpass').val() == 'password' && this.changed == false) {
+        $('.loading').attr("disabled","disabled");
+        $('.loading').removeClass('hidden');
+  
+        setTimeout(() => {
+          $('.formReset').addClass('hidden');
+          $('.successModal').removeClass('hidden');
+          localStorage.setItem('token', 'event.id_token');
+          localStorage.setItem('firstLogin', 'true');
+          localStorage.setItem('company', 'false');
+          this.router.navigate(['./dashboard/']);
+        }, 2500);
+      } else if($('.oldpass').val() == 'password' && this.changed == true) {
+        $('.loading').attr("disabled","disabled");
+        $('.loading').removeClass('hidden');
+  
+        setTimeout(() => {
+          $('.loading').addClass('hidden');
+          $('.alert3').removeClass('hidden');
+          $('.input-group').addClass('error');        
+        }, 2500);
+      }
+      else if ($('.oldpass').val() == 'passwordpassword' && this.changed == true) {
+        $('.loading').attr("disabled","disabled");
+        $('.loading').removeClass('hidden');
+  
+        setTimeout(() => {
+          $('.formReset').addClass('hidden');
+          $('.successModal').removeClass('hidden');
+          localStorage.setItem('token', 'event.id_token');
+          localStorage.setItem('firstLogin', 'true');
+          localStorage.setItem('company', 'false');
+          this.router.navigate(['./dashboard/']);
+        }, 2500);
+      }
+
+      
+    }
+    else
+    {
+      $('.loading').removeClass('hidden');
+
+      setTimeout(() => {
+        $('.alert2').removeClass('hidden');
+        $('.loading').addClass('hidden');
+      }, 2500);
+    }
   }
 
 }

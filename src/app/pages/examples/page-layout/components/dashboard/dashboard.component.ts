@@ -40,8 +40,7 @@ export class DashboardComponent implements OnInit {
       value: string;
     }[];
   }[] = [
-    {id:0, name:"MS", duration:"00:00:11", preview:"/assets/video/MS.mp4", category:"facebook", rating: 5, assets: 
-    [
+    {id:0, name:"MS", duration:"00:00:11", preview:"/assets/video/MS.mp4", category:"facebook", rating: 5, assets: [
       {id:0,name:"ShopTV",type:"text", value:""},
       {id:1,name:"PROMO",type:"text", value:""},
       {id:1,name:"Edit",type:"text", value:""},

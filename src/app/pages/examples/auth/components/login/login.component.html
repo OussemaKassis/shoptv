@@ -116,6 +116,19 @@
   </div>
 </nav>
 <div class="wrapper">
+
+  <alert class="hidden alert1" [type]="'success'" [dismissible]="true">
+    Your account has been created, check your email for the verification process! :)
+  </alert>
+
+  <alert class="hidden alert2" [type]="'warning'" [dismissible]="true">
+    Your account hasn't been verified yet!
+  </alert>
+
+  <alert class="alert3 hidden" [type]="'danger'" [dismissible]="true">
+    Please re-check your email or password.
+  </alert>
+
   <div class="page-header">
     <div class="page-header-image"></div>
     <div class="content">
@@ -165,7 +178,7 @@
                       </div>
                     </div>
                     <input
-                      class="form-control"
+                      class="form-control oldpass"
                       placeholder="Password"
                       [(ngModel)]="password"
                       name="dfgsdfg"
@@ -205,6 +218,9 @@
                   href="javascript:void(0)"
                   (click)="login()"
                 >
+
+                <i icons class="loading hidden tim-icons icon-refresh-01"></i>
+
                   LOGIN
                 </a>
 

@@ -1,14 +1,20 @@
 <div class="cc-container">
+  <alert class=" alert1" [type]="'info'" [dismissible]="true">
+    Welcome to ShopTV! :)
+  </alert>
+
   <div class="nav-bar">
     <div class="cc-brand">
       <a class="navbar-brand" placement="bottom" [routerLink]="['/dashboard']">
-        <img id="logo" src="/assets/img/logoblack.png" alt="logo" /><span> </span>
+        <img id="logo" src="/assets/img/logoblack.png" alt="logo" /><span>
+        </span>
       </a>
     </div>
     <div class="cc-items">
       <li>
         <div class="alfd" (click)="toggleMenu()">
-          <img class="pdof" src="/assets/img/profile.png" alt="" /> <span class="mb-0 text-sm  font-weight-bold">Ahmed Louati</span>
+          <img class="pdof" src="/assets/img/profile.png" alt="" />
+          <span class="mb-0 text-sm font-weight-bold">Oussema Kassis</span>
           <div class="mrtf hidden">
             <ul>
               <li routerLink="../dashboard/profile">profile</li>
@@ -53,7 +59,7 @@
         <div class="menu-items">
           <h5>
             <img src="/assets/img/cloud.png" alt="cloud" /> My space
-            <span> [14.8 MB/0.5 GB] </span>
+            <span> [0.00 MB/0.5 GB] </span>
           </h5>
           <ul>
             <li class="item1" routerLink="./templates">My Templates</li>
@@ -61,9 +67,7 @@
           </ul>
         </div>
         <div class="menu-items company-admin">
-          <h5>
-            <img src="/assets/img/company.png" alt="cloud" /> Team
-          </h5>
+          <h5><img src="/assets/img/company.png" alt="cloud" /> Team</h5>
           <ul>
             <li class="item3" routerLink="./create-employee">New Employee</li>
             <li class="item4" routerLink="./employees">Employees List</li>

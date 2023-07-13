@@ -207,9 +207,26 @@
                     <input
                       class="form-control"
                       placeholder="Password"
-                      type="text"
+                      type="password"
                       (focus)="focus2 = true"
                       (blur)="focus2 = false"
+                    />
+                  </div>
+                  <div
+                    class="input-group"
+                    [ngClass]="{ 'input-group-focus': focus6 === true }"
+                  >
+                    <div class="input-group-prepend">
+                      <div class="input-group-text">
+                        <i class="tim-icons icon-lock-circle"> </i>
+                      </div>
+                    </div>
+                    <input
+                      class="form-control"
+                      placeholder="Confirm password"
+                      type="password"
+                      (focus)="focus6 = true"
+                      (blur)="focus6 = false"
                     />
                   </div>
                   <div class="form-check text-left">
@@ -235,6 +252,7 @@
                   class="btn btn-danger btn-round btn-lg"
                   (click)="register()"
                 >
+                <i icons class="loading hidden tim-icons icon-refresh-01"></i>
                   Get Started
                 </a>
               </div>

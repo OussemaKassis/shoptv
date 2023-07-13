@@ -16,6 +16,7 @@ import { CreditCardFormComponent } from './components/credit-card-form/credit-ca
 import { EmployersListComponent } from './components/employers-list/employers-list.component';
 import { AddEmployerComponent } from './components/add-employer/add-employer.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { AlertModule } from 'ngx-bootstrap/alert';
 
 
 
@@ -26,6 +27,7 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     RouterModule,
     ModalModule,
     FormsModule,
+    AlertModule
   ]
 })
 export class LayoutModule { }
