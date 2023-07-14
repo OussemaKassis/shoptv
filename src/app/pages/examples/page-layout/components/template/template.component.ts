@@ -234,6 +234,7 @@ export class TemplateComponent implements OnInit {
                 console.log('error');
                 console.log(err.error.text.substring(26));
                 localStorage.setItem('videoUrl', err.error.text.substring(26));
+                localStorage.setItem('videoGenerated', 'true');
                 localStorage.setItem('tries',(parseInt(localStorage.getItem('tries')) - 1).toString());
                 this.router.navigate(['./dashboard/video/99']);
               },
@@ -281,6 +282,7 @@ export class TemplateComponent implements OnInit {
               localStorage.setItem('videoUrl', err.error.text.substring(26));
               localStorage.setItem('videoName', this.videoName);
               localStorage.setItem('videoCategory', this.videoName);
+              localStorage.setItem('videoGenerated', 'true');
               localStorage.setItem('tries',(parseInt(localStorage.getItem('tries')) - 1).toString());
               this.router.navigate(['./dashboard/video/99']);
             },
