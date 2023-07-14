@@ -1,5 +1,7 @@
-<p>template works!</p>
 <div class="cc-container" id="azerty">
+  <alert class="alert69 hidden" [type]="'danger'" [dismissible]="true">
+    Video name is required.
+  </alert>
   <div class="cc-form">
     <h2>Generate your own video</h2>
     <div class="cc-form-container">
@@ -34,9 +36,10 @@
               <div class="field-name">
                 <div class="title-field">Template ratio</div>
                 <select name="" id="">
-                  <option value="6:19">6:19</option>
-                  <option value="4:3">4:3</option>
                   <option value="9:16">9:16</option>
+                  <option value="16:9">16:9</option>
+                  <option value="4:3">4:3</option>
+                  <option value="16:10">16:10</option>
                 </select>
               </div>
             </div>

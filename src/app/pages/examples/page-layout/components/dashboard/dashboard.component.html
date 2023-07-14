@@ -35,14 +35,10 @@
 <div class="cc-section">
   <div class="section-title">Latest Videos</div>
   <div class="section-items-videos">
-    <div class="content-card">
-      <img src="" alt="" />
-    </div>
-    <div class="content-card">
-      <img src="" alt="" />
-    </div>
-    <div class="content-card">
-      <img src="" alt="" />
+    <div *ngFor="let item of videosR" [routerLink]="['./video/'+item.id]" class="content-card instacard">
+      <video [ngClass]="{'new': item.id === 99}" [controls]="false" autoplay loop [muted]="true" >
+        <source  [src]="item.preview" type="video/mp4" />
+      </video>
     </div>
   </div>
 </div>

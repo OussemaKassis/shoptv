@@ -25,7 +25,7 @@ export class TemplatesComponent implements OnInit {
       valueUrl: string;
     }[];
   }[] = [
-    {id:0, name:"MS", duration:"00:00:11", preview:"/assets/video/MS.mp4", category:"facebook", rating: 5, assets: [
+    {id:0, name:"ShopTv", duration:"00:00:11", preview:"/assets/video/MS.mp4", category:"facebook", rating: 5, assets: [
       {id:0,layoutname:"ShopTV",name:"intro main",type:"text", value:"", valueUrl:""},
       {id:1,layoutname:"PROMO",name:"intro sub",type:"text", value:"", valueUrl:""},
       {id:1,layoutname:"pexels-michael-burrows-7129038.jpg",name:"intro main picture",type:"image", value:"", valueUrl:""},
@@ -111,9 +111,36 @@ export class TemplatesComponent implements OnInit {
       ]}
   ];
 
+  templates: {
+    id:number;
+    name: string;
+    preview: string;
+    duration: string;
+    category: string;
+    rating: number;
+    assets: {
+      id: number;
+      layoutname: string;
+      name: string;
+      type: string;
+      value: string;
+      valueUrl: string;
+    }[];
+  }[] = []
+
   constructor(private router: Router) { }
 
   ngOnInit(): void {
+    this.templates1.forEach((elem:any)=> {
+      if(elem.id !== 0 && localStorage.getItem('templateAdded')=='false') {
+        this.templates.push(elem);
+      }
+      else if(localStorage.getItem('templateAdded')=='true') {
+        this.templates.push(elem);
+      }
+    })
+
+
     $('.item1').addClass('active');
     $('.item2').removeClass('active');
 

@@ -37,7 +37,7 @@
                   >
                 </div>
                 <button class="upload-button">
-                  <input type="file" id="file" (change)="getFile($event)" />
+                  <input type="file" id="file" (change)="getFile($event)" accept=".aep,.ea"  />
                   <label for="file" class="upload-button-text"
                     >Choose file</label
                   >
@@ -71,9 +71,10 @@
               <div class="field-name">
                 <div class="title-field">Template ratio</div>
                 <select name="" id="">
-                  <option value="6:19">6:19</option>
-                  <option value="4:3">4:3</option>
                   <option value="9:16">9:16</option>
+                  <option value="16:9">16:9</option>
+                  <option value="4:3">4:3</option>
+                  <option value="16:10">16:10</option>
                 </select>
               </div>
             </div>
@@ -92,7 +93,7 @@
               </div>
               <div class="field-name">
                 <div class="title-field">asset layout name</div>
-                <input type="text" [(ngModel)]="item.name" />
+                <input type="text" [(ngModel)]="item.layoutName" />
               </div>
               <div class="field-name">
                 <div class="title-field">asset type</div>

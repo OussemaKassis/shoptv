@@ -26,7 +26,7 @@ export class YoutubeTemplatesComponent implements OnInit {
       valueUrl: string;
     }[];
   }[] = [
-    {id:0, name:"MS", duration:"00:00:11", preview:"/assets/video/MS.mp4", category:"youtube", rating: 5, assets: [
+    {id:0, name:"ShopTv", duration:"00:00:11", preview:"/assets/video/MS.mp4", category:"youtube", rating: 5, assets: [
       {id:0,layoutname:"ShopTV",name:"intro main",type:"text", value:"", valueUrl:""},
       {id:1,layoutname:"PROMO",name:"intro sub",type:"text", value:"", valueUrl:""},
       {id:1,layoutname:"pexels-michael-burrows-7129038.jpg",name:"intro main picture",type:"image", value:"", valueUrl:""},

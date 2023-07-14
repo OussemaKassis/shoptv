@@ -7,6 +7,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./video.component.scss']
 })
 export class VideoComponent implements OnInit {
+  creationDate: any = "";
   videos: {
     id:number;
     name: string;
@@ -36,6 +37,7 @@ export class VideoComponent implements OnInit {
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.creationDate = localStorage.getItem('creationDate');
     this.route.params.subscribe(params => {
       this.videoId = params['id']
     });

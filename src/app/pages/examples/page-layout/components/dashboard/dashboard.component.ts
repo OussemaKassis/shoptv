@@ -40,7 +40,7 @@ export class DashboardComponent implements OnInit {
       value: string;
     }[];
   }[] = [
-    {id:0, name:"MS", duration:"00:00:11", preview:"/assets/video/MS.mp4", category:"facebook", rating: 5, assets: [
+    {id:0, name:"ShopTv", duration:"00:00:11", preview:"/assets/video/MS.mp4", category:"facebook", rating: 5, assets: [
       {id:0,name:"ShopTV",type:"text", value:""},
       {id:1,name:"PROMO",type:"text", value:""},
       {id:1,name:"Edit",type:"text", value:""},
@@ -202,11 +202,53 @@ export class DashboardComponent implements OnInit {
     {id:1,name:"pexels-anna-shvets-5325015.jpg",type:"image", value:""},
     {id:1,name:"pexels-artem-podrez-4492216.jpg",type:"image", value:""}]}
   ];
+  
+  videos: {
+    id:number;
+    name: string;
+    preview: string;
+    duration: string;
+    category: string;
+  }[] = [
+    {id:0, name:"tiktok test1", duration:"00:00:10", preview:"/assets/video/video1_m.mp4", category:"tiktok"},
+    {id:1,name:"tiktok test2",duration:"00:00:10",preview:"/assets/video/video2_m.mp4",category:"tiktok"},
+    {id:2,name:"tiktok test3",duration:"00:00:10",preview:"/assets/video/video3_m.mp4",category:"tiktok"},
+    {id:99, name:"marketing video for youtube", duration:"00:00:10", preview:"/assets/video/marketing video for youtube.mp4", category:"youtube"},
+  ];
+
+  videosR: {
+    id:number;
+    name: string;
+    preview: string;
+    duration: string;
+    category: string;
+  }[] = [];
 
 
   constructor() { }
 
   ngOnInit(): void {
+
+    if(localStorage.getItem('videoGenerated') == 'true') {
+      this.videos.forEach((elem: any)=> {
+        if(this.videosR.length < 2 ) {
+          this.videosR.push(elem);
+        }
+      })
+      this.videos.forEach((elem: any)=> {
+        if(elem.id == 99 ) {
+          this.videosR.unshift(elem);
+        }
+      })
+    }else {
+      this.videos.forEach((elem: any)=> {
+        if(this.videosR.length < 3 ) {
+          this.videosR.push(elem);
+        }
+      })
+    }
+
+
     $('.item1').removeClass('active');
     $('.item2').removeClass('active');
     this.templates2 = [];
@@ -221,7 +263,6 @@ export class DashboardComponent implements OnInit {
       })
     }
 
-    console.log(this.templates2);
 
 
     setTimeout(() => {

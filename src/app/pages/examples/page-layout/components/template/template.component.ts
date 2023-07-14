@@ -23,6 +23,7 @@ export class TemplateComponent implements OnInit {
     valueUrl:string;
   }[] = [];
 
+
   templates1: {
     id:number;
     name: string;
@@ -39,7 +40,7 @@ export class TemplateComponent implements OnInit {
       valueUrl:string;
     }[];
   }[] = [
-    {id:0, name:"MS", duration:"00:00:11", preview:"/assets/video/MS.mp4", category:"facebook", rating: 5, assets: [
+    {id:0, name:"ShopTv", duration:"00:00:11", preview:"/assets/video/MS.mp4", category:"facebook", rating: 5, assets: [
       {id:0,layoutname:"ShopTV",name:"intro main",type:"text", value:"", valueUrl:""},
       {id:1,layoutname:"PROMO",name:"intro sub",type:"text", value:"", valueUrl:""},
       {id:1,layoutname:"pexels-michael-burrows-7129038.jpg",name:"intro main picture",type:"image", value:"", valueUrl:""},
@@ -161,7 +162,7 @@ export class TemplateComponent implements OnInit {
       }
       if (element.type == 'image' && element.valueUrl !== ""){
         let val = element.valueUrl;
-        val = val.replace('fakepath','Users/Oussema/Downloads').replace('\\','/');
+        val = val.replace('fakepath','Users/Oussema/Downloads/ShopTV AF Template/images').replace('\\','/');
         val = val.replace('\\','/');
         imageAssets = imageAssets + '{"type":"image","layerName":"'+element.layoutname+'","src":"file:///'+val+'"},';
       }
@@ -186,13 +187,15 @@ export class TemplateComponent implements OnInit {
       assets = textAssets;
     }
 
-    let requestBody = '{"template":{"src":"file:///C:/Users/Oussema/Desktop/test/oussema/Adobe After Effects Auto-Save/test auto-save 1.aep","composition":"MS"},"assets":['+assets.replace('\\','/')+'],"actions":{"postrender":[{"module":"@nexrender/action-encode","preset":"mp4","output":"encoded.mp4"},{"module":"@nexrender/action-copy","input":"encoded.mp4","output":"C:/workspace/Ng/shoptv/src/assets/video/'+this.videoName+'.mp4"}]}}'
+    localStorage.setItem('creationDate', 'a moment ago');
 
+    let requestBody = '{"template":{"src":"file:///C:/Users/Oussema/Desktop/test/oussema/Adobe After Effects Auto-Save/test auto-save 1.aep","composition":"MS"},"assets":['+assets.replace('\\','/')+'],"actions":{"postrender":[{"module":"@nexrender/action-encode","preset":"mp4","output":"encoded.mp4"},{"module":"@nexrender/action-copy","input":"encoded.mp4","output":"C:/workspace/Ng/shoptv/src/assets/video/'+this.videoName+'.mp4"}]}}';
 
     if(this.videoName == "") {
       let elem = document.getElementById("azerty");
       elem.scrollIntoView({ behavior: "smooth" });
       $('#videoname').addClass('required');
+      $('.alert69').removeClass('hidden');
     }else {
       if(assets == "") {
         if(confirm('do you want to generate the video without changing any variable?') == true) {
@@ -225,11 +228,9 @@ export class TemplateComponent implements OnInit {
             this.templateService.generateVideo(requestBody).subscribe({
               next: (event: any) => {
                 $('.m-model').addClass('hidden');
-                alert(this.progressVal);
               },
               error: (err) => {
                 $('.m-model').addClass('hidden');
-                alert(this.progressVal);
                 console.log('error');
                 console.log(err.error.text.substring(26));
                 localStorage.setItem('videoUrl', err.error.text.substring(26));
@@ -272,11 +273,9 @@ export class TemplateComponent implements OnInit {
           this.templateService.generateVideo(requestBody).subscribe({
             next: (event: any) => {
               $('.m-model').addClass('hidden');
-              alert(this.progressVal);
             },
             error: (err) => {
               $('.m-model').addClass('hidden');
-              alert(this.progressVal);
               console.log('error');
               console.log(err.error.text.substring(26));
               localStorage.setItem('videoUrl', err.error.text.substring(26));
@@ -324,7 +323,7 @@ export class TemplateComponent implements OnInit {
     setInterval(function () {
       var progressBar = document.getElementById("progressBar");
       var progressValue = document.getElementById("progressVal");
-      that.progressVal = that.progressVal + Math.random() * (5.9 - 4.2) + 4.2;
+      that.progressVal = that.progressVal + Math.random() * (3.2 - 2.5) + 2.5;
       if(that.progressVal<= 100) {
         $(progressBar).css('width', that.progressVal+'%');
         $(progressValue).html(that.progressVal.toFixed(2)+'%');

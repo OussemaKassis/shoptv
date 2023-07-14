@@ -20,12 +20,14 @@ export class VideosComponent implements OnInit {
     {id:2,name:"tiktok test3",duration:"00:00:10",preview:"/assets/video/video3_m.mp4",category:"tiktok"},
     {id:3,name:"instag vid",duration:"00:00:10",preview:"/assets/video/video4_m.mp4",category:"instagram"},
     {id:4,name:"instag vid",duration:"00:00:10",preview:"/assets/video/video5_m.mp4",category:"instagram"},
+    {id:4,name:"instag vid",duration:"00:00:10",preview:"/assets/video/video5_m.mp4",category:"instagram"},
+    {id:4,name:"instag vid",duration:"00:00:10",preview:"/assets/video/video5_m.mp4",category:"instagram"},
+    {id:4,name:"instag vid",duration:"00:00:10",preview:"/assets/video/video5_m.mp4",category:"instagram"},
     {id:5,name:"test instag",duration:"00:00:10",preview:"/assets/video/video6_m.mp4",category:"instagram"},
     {id:6,name:"youtube ads",duration:"00:00:10",preview:"/assets/video/video7_m.mp4",category:"youtube"},
     {id:7,name:"YouTube",duration:"00:00:10",preview:"/assets/video/video8_m.mp4",category:"youtube"},
     {id:8,name:"yt testing",duration:"00:00:10",preview:"/assets/video/video9_m.mp4",category:"youtube"}
   ];
-
 
   tiktokvideos: {
     id:number;
@@ -60,13 +62,13 @@ export class VideosComponent implements OnInit {
 
     this.videos.forEach((element: any, index: number) => {
       if(element.category === "tiktok") {
-        this.tiktokvideos.push(element);
+        if(this.tiktokvideos.length < 3) this.tiktokvideos.push(element);
       }
       if(element.category === "youtube") {
-        this.facebookvideos.push(element);
+        if(this.facebookvideos.length < 3) this.facebookvideos.push(element);
       }
       if(element.category === "instagram") {
-        this.instagramvideos.push(element);
+        if(this.instagramvideos.length < 3) this.instagramvideos.push(element);
       }
     });
   }

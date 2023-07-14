@@ -9,7 +9,7 @@ import $ from 'jquery';
 })
 
 export class PageLayoutComponent implements OnInit {
-
+  size: string= '0.00';
   firstName : string = "";
   lastName : string = "";
   free : string = '5';
@@ -17,6 +17,12 @@ export class PageLayoutComponent implements OnInit {
 
   ngOnInit(): void {
 
+    if(localStorage.getItem('templateAdded') == 'true' && localStorage.getItem('videoGenerated') == 'false') {
+      this.size = '9.58';
+    }
+    if(localStorage.getItem('templateAdded') == 'true' && localStorage.getItem('videoGenerated') == 'true') {
+      this.size = '49.15';
+    }
     this.firstName = localStorage.getItem('firstName');
     this.lastName = localStorage.getItem('lastName');
 

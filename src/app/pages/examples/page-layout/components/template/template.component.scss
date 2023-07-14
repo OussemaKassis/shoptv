@@ -471,3 +471,15 @@ h2 {
     }
   }
 }
+
+
+.alert69 {
+  position: absolute;
+  right: 100px;
+  top: 41px;
+  z-index: 99;
+
+  &.hidden {
+    display: none;
+  }
+}
